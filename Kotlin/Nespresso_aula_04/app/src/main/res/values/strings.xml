@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">nespresso_app</string>
+    <string name="txt_coffees">Cafés</string>
+    <string name="text_coffee_subtitle">Cremosos, espumosos, hmm</string>
+    <string name="txt_machines">Máquinas</string>
+    <string name="txt_coffees_subtitle">Sem elas não rola café</string>
+    <string name="txt_accessories">Acessórios</string>
+    <string name="txt_accessories_subtitle">Pra completar a balaca</string>
+    <string name="txt_products">Produtos</string>
+    <string name="txt_favorites">Favoritos</string>
+    <string name="txt_bag">Sacola</string>
+</resources>
