@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="18dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_capsule_image"
+        android:layout_width="60dp"
+        android:layout_height="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_capsule_title"
+        app:srcCompat="@drawable/machine_list" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_capsule_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="India"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_capsule_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/green"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_favorite"
+        app:layout_constraintStart_toStartOf="@+id/tv_capsule_title"
+        app:layout_constraintTop_toTopOf="@+id/iv_favorite"
+        tools:text="R$ 2,80" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_favorite"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_capsule_image"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        app:srcCompat="@drawable/ic_favorite_outline" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
