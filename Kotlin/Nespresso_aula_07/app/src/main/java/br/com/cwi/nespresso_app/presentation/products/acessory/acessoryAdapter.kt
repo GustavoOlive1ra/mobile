@@ -16,6 +16,8 @@ import br.com.cwi.nespresso_app.domain.entity.Item
 import br.com.cwi.nespresso_app.domain.entity.ItemType
 import br.com.cwi.nespresso_app.domain.entity.Type
 import br.com.cwi.nespresso_app.presentation.extension.toMoneyFormat
+import br.com.cwi.nespresso_app.presentation.products.acessory.viewholder.CategoryViewHolder
+import br.com.cwi.nespresso_app.presentation.products.acessory.viewholder.ItemViewHolder
 import com.bumptech.glide.Glide
 
 const val VIEW_TYPE_CATEGORY = 0
@@ -60,26 +62,5 @@ class AcessoryAdapter(val context: Context, private val list: List<Type>) : Recy
         .inflate(layout, parent, false)
 }
 
-class CategoryViewHolder(item: View) : RecyclerView.ViewHolder(item) {
-    private val tvCategory = ItemAcessoryCategoryBinding.bind(item).tvCategoryType
 
-    fun bind(item: Acessory) {
-        tvCategory.text = item.category
-    }
-}
 
-class ItemViewHolder(item: View) : RecyclerView.ViewHolder(item) {
-    private val tvTitle = ItemAcessoryItemBinding.bind(item).tvAcessoryTitle
-    private val ivImage = ItemAcessoryItemBinding.bind(item).ivAcessoryImage
-    private val tvPrice = ItemAcessoryItemBinding.bind(item).tvAcessoryPrice
-    private val ivFavorite = ItemAcessoryItemBinding.bind(item).ivFavorite
-
-    fun bind(context: Context, item: Item) {
-        tvTitle.text = item.name
-        tvPrice.text = item.unitPrice.toMoneyFormat()
-
-        Glide.with(context)
-            .load(item.urlImage)
-            .into(ivImage)
-    }
-}
