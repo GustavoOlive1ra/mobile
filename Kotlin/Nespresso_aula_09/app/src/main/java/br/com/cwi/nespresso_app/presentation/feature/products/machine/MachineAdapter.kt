@@ -26,11 +26,12 @@ class MachineAdapter(val context: Context, private val list: List<Machine>) :
                 tvName.text = machine.name
                 tvPrice.text = machine.unitPrice.toMoneyFormat(0)
                 Glide.with(context).load(machine.imageUrl).into(ivMachine)
-            }
-            holder.itemView.rootView.setOnClickListener{
-                val intent = Intent(context, MachineDetailActivity::class.java)
-                    .putExtra("id", position)
-                context.startActivity(intent)
+
+                holder.itemView.rootView.setOnClickListener{
+                    val intent = Intent(context, MachineDetailActivity::class.java)
+                        .putExtra("id", machine.id)
+                    context.startActivity(intent)
+                }
             }
         }
     }
