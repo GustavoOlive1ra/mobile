@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Nespresso APP</string>
+
+    <string name="txt_coffees_title">Cafés</string>
+    <string name="txt_coffees_subtitle">Cremosos, espumosos, hmm</string>
+
+    <string name="txt_machines_title">Máquinas</string>
+    <string name="txt_machines_subtitle">Sem elas não rola café</string>
+
+    <string name="txt_accessories_title">Acessórios</string>
+    <string name="txt_accessories_subtitle">Pra completar a balaca</string>
+    <string name="title_activity_coffee">CoffeeActivity</string>
+
+    <string name="txt_products">Produtos</string>
+    <string name="txt_favorites">Favoritos</string>
+    <string name="txt_bag">Sacola</string>
+
+    <string name="txt_intensity">Intensidade: %d</string>
+    <string name="txt_error_title">Opss, algo deu errado</string>
+    <string name="txt_error_subtitle">Tente novamente mais tarde</string>
+    <string name="title_activity_coffee_host">CoffeeHostActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_machine_host">MachineHostActivity</string>
+
+</resources>

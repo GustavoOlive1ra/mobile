@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_coffee"
+    app:startDestination="@id/coffeeFragment">
+
+    <fragment
+        android:id="@+id/coffeeFragment"
+        android:name="br.com.cwi.nespresso_app.presentation.feature.products.coffee.CoffeeFragment"
+        android:label="CoffeeFragment"
+        tools:layout="@layout/fragment_coffee">
+        <action
+            android:id="@+id/action_coffeeFragment_to_coffieDetailFragment"
+            app:destination="@id/coffieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coffieDetailFragment"
+        android:name="br.com.cwi.nespresso_app.presentation.feature.products.coffee.CoffieDetailFragment"
+        android:label="fragment_coffie_detail"
+        tools:layout="@layout/fragment_coffie_detail" />
+
+</navigation>
