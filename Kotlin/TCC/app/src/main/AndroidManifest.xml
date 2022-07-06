@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Pokemons"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.features.pokemons.PokemonsActivity"
+            android:name=".presentation.features.pokemons.PokemonsHostActivity"
             android:exported="true"
             android:theme="@style/Theme.Pokemons.NoActionBar">
             <intent-filter>

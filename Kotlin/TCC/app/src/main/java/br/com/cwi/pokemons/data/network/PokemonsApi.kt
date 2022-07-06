@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface PokemonsApi {
 
-    @GET("pokemon?limit=150&offset=0")
+    @GET("pokemon?limit=151&offset=0")
     suspend fun getPokemonsBase(): PokemonBasePageableResponse
 
     @GET("pokemon/{name}")
