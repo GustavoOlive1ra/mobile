@@ -1,8 +1,7 @@
 package br.com.cwi.pokemons.data.network
 
 import br.com.cwi.pokemons.data.network.entity.PokemonBasePageableResponse
-import br.com.cwi.pokemons.data.network.entity.PokemonBaseResponse
-import br.com.cwi.pokemons.data.network.entity.PokemonResponse
+import br.com.cwi.pokemons.data.network.entity.PokemonDetailResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -12,5 +11,5 @@ interface PokemonsApi {
     suspend fun getPokemonsBase(): PokemonBasePageableResponse
 
     @GET("pokemon/{name}")
-    suspend fun getPokemon(@Path("name") name: String): PokemonResponse
+    suspend fun getPokemon(@Path("name") name: String): PokemonDetailResponse
 }

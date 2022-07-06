@@ -1,41 +1,30 @@
 package br.com.cwi.pokemons.data.repository
 
 import br.com.cwi.pokemons.data.network.PokemonsApi
-import br.com.cwi.pokemons.data.network.entity.PokemonBasePageableResponse
-import br.com.cwi.pokemons.data.network.entity.PokemonBaseResponse
-import br.com.cwi.pokemons.data.network.entity.PokemonResponse
-import br.com.cwi.pokemons.data.network.mapper.PokemonMapper
-import br.com.cwi.pokemons.domain.entity.Pokemon
+import br.com.cwi.pokemons.data.network.mapper.PokemonBaseMapper
+import br.com.cwi.pokemons.data.network.mapper.PokemonDatailMapper
+import br.com.cwi.pokemons.domain.entity.PokemonDetail
+import br.com.cwi.pokemons.domain.entity.Pokemons
 import br.com.cwi.pokemons.domain.repository.PokemonRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class PokemonRepositoryImpl(
     private val api: PokemonsApi,
-    private val pokemonMapper: PokemonMapper
+    private val pokemonDatailMapper: PokemonDatailMapper,
+    private val pokemonBaseMapper: PokemonBaseMapper
 ) : PokemonRepository {
 
-    suspend fun getPokemonsBase(): PokemonBasePageableResponse {
+    override suspend fun getPokemons(): List<Pokemons> {
         return withContext(Dispatchers.IO) {
-            api.getPokemonsBase()
+            pokemonBaseMapper.toDomain(api.getPokemonsBase().pokemons)
         }
     }
 
-    override suspend fun getPokemons(): List<Pokemon> {
-        val pokemonsBaseResponse = getPokemonsBase().pokemons
-        val pokemons = pokemonMapper.toDomain(findPokemonsByName(pokemonsBaseResponse))
-        return pokemons;
+    override suspend fun getPokemonDetail(name: String): PokemonDetail {
+        return  withContext(Dispatchers.IO) {
+            pokemonDatailMapper.toDomain(api.getPokemon(name))
+        }
     }
 
-    private suspend fun findPokemonsByName(pokemonsBase: List<PokemonBaseResponse>): List<PokemonResponse>{
-        val pokemonsResponse = mutableListOf<PokemonResponse>()
-        pokemonsBase.forEach { pokemonBase->
-            pokemonsResponse.add(
-                withContext(Dispatchers.IO) {
-                    api.getPokemon(pokemonBase.name)
-                }
-            )
-        }
-        return pokemonsResponse
-    }
 }

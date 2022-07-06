@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">pokemons</string>
+    <string name="txt_home">Home</string>
+    <string name="txt_profile">Profile</string>
 </resources>
