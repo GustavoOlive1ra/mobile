@@ -8,11 +8,12 @@ import br.com.cwi.pokemons.domain.entity.Pokemons
 
 class PokemonAdapter(
     private val list: List<Pokemons>,
+    private val onPokemonClick: (String) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false)
-        return  PokemonViewHolder(view)
+        return  PokemonViewHolder(view, onPokemonClick)
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {

@@ -6,9 +6,11 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import br.com.cwi.pokemons.R
 import br.com.cwi.pokemons.databinding.ActivityPokemonsHostBinding
+import br.com.cwi.pokemons.presentation.base.BaseBottomNavigation
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PokemonsHostActivity : AppCompatActivity() {
+class PokemonsHostActivity : BaseBottomNavigation() {
 
     private lateinit var binding: ActivityPokemonsHostBinding
 
@@ -17,6 +19,9 @@ class PokemonsHostActivity : AppCompatActivity() {
     private val navController by lazy{
         (supportFragmentManager.findFragmentById(binding.navHostContainner.id) as NavHostFragment).findNavController()
     }
+    override val currentTab: Int = R.id.home_menu
+
+    override fun getBottomNavigation(): BottomNavigationView = binding.bottomNavigation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

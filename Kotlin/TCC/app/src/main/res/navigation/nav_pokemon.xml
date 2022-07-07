@@ -10,6 +10,16 @@
         android:id="@+id/pokemonsFragment"
         android:name="br.com.cwi.pokemons.presentation.features.pokemons.PokemonsFragment"
         android:label="PokemonsFragment"
-        tools:layout="@layout/fragment_pokemon"/>
+        tools:layout="@layout/fragment_pokemon">
+        <action
+            android:id="@+id/action_pokemonsFragment_to_pokemonsDetailFragment"
+            app:destination="@id/pokemonsDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pokemonsDetailFragment"
+        android:name="br.com.cwi.pokemons.presentation.features.pokemons.PokemonDetailFragment"
+        android:label="PokemonDetailFragment"
+        tools:layout="@layout/fragment_pokemon_detail"/>
 
 </navigation>

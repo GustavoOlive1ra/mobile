@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import br.com.cwi.pokemons.R
 import br.com.cwi.pokemons.databinding.FragmentPokemonBinding
 import br.com.cwi.pokemons.domain.entity.Pokemons
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
+const val KEY_NAME_POKEMON = "pokemon_name"
 class PokemonsFragment: Fragment() {
 
     private lateinit var binding: FragmentPokemonBinding
@@ -43,7 +47,15 @@ class PokemonsFragment: Fragment() {
             addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             )
-            adapter = PokemonAdapter(list)
+            adapter = PokemonAdapter(list, {navigationToPokemonDatail(it)})
         }
+    }
+
+    private fun navigationToPokemonDatail(name: String){
+        findNavController().navigate(
+            R.id.action_pokemonsFragment_to_pokemonsDetailFragment, bundleOf(
+            Pair(KEY_NAME_POKEMON, name)
+        )
+        )
     }
 }
