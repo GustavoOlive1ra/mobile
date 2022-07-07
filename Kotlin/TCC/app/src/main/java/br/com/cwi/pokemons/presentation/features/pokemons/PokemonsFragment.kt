@@ -15,6 +15,7 @@ import br.com.cwi.pokemons.domain.entity.Pokemons
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 const val KEY_NAME_POKEMON = "pokemon_name"
+
 class PokemonsFragment: Fragment() {
 
     private lateinit var binding: FragmentPokemonBinding
@@ -44,9 +45,6 @@ class PokemonsFragment: Fragment() {
     private fun setUpPokemonsRecyclerView(list: List<Pokemons>) {
         binding.rvPokemons.apply {
             layoutManager = GridLayoutManager(context, 3)
-            addItemDecoration(
-                DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-            )
             adapter = PokemonAdapter(list, {navigationToPokemonDatail(it)})
         }
     }

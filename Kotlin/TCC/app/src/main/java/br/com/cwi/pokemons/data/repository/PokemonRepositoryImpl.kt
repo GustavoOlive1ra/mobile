@@ -1,9 +1,12 @@
 package br.com.cwi.pokemons.data.repository
 
 import br.com.cwi.pokemons.data.network.PokemonsApi
+import br.com.cwi.pokemons.data.network.entity.PokemonSpeciesResponse
 import br.com.cwi.pokemons.data.network.mapper.PokemonBaseMapper
-import br.com.cwi.pokemons.data.network.mapper.PokemonDatailMapper
+import br.com.cwi.pokemons.data.network.mapper.PokemonDetailMapper
+import br.com.cwi.pokemons.data.network.mapper.PokemonSpeciesMapper
 import br.com.cwi.pokemons.domain.entity.PokemonDetail
+import br.com.cwi.pokemons.domain.entity.PokemonSpecies
 import br.com.cwi.pokemons.domain.entity.Pokemons
 import br.com.cwi.pokemons.domain.repository.PokemonRepository
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +14,8 @@ import kotlinx.coroutines.withContext
 
 class PokemonRepositoryImpl(
     private val api: PokemonsApi,
-    private val pokemonDatailMapper: PokemonDatailMapper,
+    private val pokemonDetailMapper: PokemonDetailMapper,
+    private val pokemonSpeciesMapper: PokemonSpeciesMapper,
     private val pokemonBaseMapper: PokemonBaseMapper
 ) : PokemonRepository {
 
@@ -23,7 +27,13 @@ class PokemonRepositoryImpl(
 
     override suspend fun getPokemonDetail(name: String): PokemonDetail {
         return  withContext(Dispatchers.IO) {
-            pokemonDatailMapper.toDomain(api.getPokemon(name))
+            pokemonDetailMapper.toDomain(api.getPokemonDetail(name))
+        }
+    }
+
+    override suspend fun getPokemonSpecies(name: String): PokemonSpecies {
+        return  withContext(Dispatchers.IO) {
+           pokemonSpeciesMapper.toDomain(api.getPokemonSpecies(name))
         }
     }
 
