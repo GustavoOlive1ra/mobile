@@ -4,4 +4,5 @@ class Pokemons (
     val name: String,
     val url: String,
     val image: String,
+    var unlocked: Boolean = false
 )

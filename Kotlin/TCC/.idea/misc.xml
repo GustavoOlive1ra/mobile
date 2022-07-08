@@ -8,8 +8,13 @@
         <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/activity_profile.xml" value="0.24365942028985507" />
         <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/fragment_pokemon.xml" value="0.2749094202898551" />
         <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/fragment_pokemon_detail.xml" value="0.25" />
+        <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/group_pokemon_info.xml" value="0.27853260869565216" />
+        <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/item_group.xml" value="0.365625" />
         <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/item_pokemon.xml" value="0.31139240506329113" />
+        <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/item_pokemon_ability.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/item_pokemon_header.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/item_pokemon_status.xml" value="0.365625" />
+        <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/layout/item_pokemon_status_header.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gusta/Desktop/Crescer LvL 3/mobile/Kotlin/TCC/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.15" />
       </map>
     </option>

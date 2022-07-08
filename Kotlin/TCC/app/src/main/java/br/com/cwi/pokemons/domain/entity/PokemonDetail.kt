@@ -7,4 +7,5 @@ class PokemonDetail(
     val weight: Int,
     val image: String,
     val status: List<Status>,
+    val ability: List<Ability>
 )
