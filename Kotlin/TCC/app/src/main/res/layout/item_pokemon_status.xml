@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_status_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingVertical="2dp"
+        tools:text="Speed" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_two_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_status_name"
+        app:layout_constraintStart_toEndOf="@+id/tv_status_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_status_name"
+        android:text="@string/txt_two_points" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_status_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_status_name"
+        app:layout_constraintStart_toEndOf="@+id/tv_two_points"
+        app:layout_constraintTop_toTopOf="@+id/tv_status_name"
+        tools:text="40" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

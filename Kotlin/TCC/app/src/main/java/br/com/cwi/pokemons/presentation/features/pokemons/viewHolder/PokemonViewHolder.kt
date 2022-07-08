@@ -1,4 +1,4 @@
-package br.com.cwi.pokemons.presentation.features.pokemons
+package br.com.cwi.pokemons.presentation.features.pokemons.viewHolder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -6,7 +6,10 @@ import br.com.cwi.pokemons.databinding.ItemPokemonBinding
 import br.com.cwi.pokemons.domain.entity.Pokemons
 import com.bumptech.glide.Glide
 
-class PokemonViewHolder(item: View, private val onPokemonClick: (String) -> Unit) :
+class PokemonViewHolder(
+    item: View,
+    private val onPokemonClick: (String) -> Unit
+) :
     RecyclerView.ViewHolder(item) {
     val tvName = ItemPokemonBinding.bind(item).tvName
     val ivPokemon = ItemPokemonBinding.bind(item).ivPokemon
@@ -15,7 +18,7 @@ class PokemonViewHolder(item: View, private val onPokemonClick: (String) -> Unit
         tvName.text = pokemon.name
         Glide.with(itemView.context).load(pokemon.image).into(ivPokemon)
 
-        itemView.setOnClickListener{
+        itemView.setOnClickListener {
             onPokemonClick(pokemon.name)
         }
     }

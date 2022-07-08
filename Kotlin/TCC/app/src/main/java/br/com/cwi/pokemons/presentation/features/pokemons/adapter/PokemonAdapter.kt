@@ -1,10 +1,11 @@
-package br.com.cwi.pokemons.presentation.features.pokemons
+package br.com.cwi.pokemons.presentation.features.pokemons.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.cwi.pokemons.R
 import br.com.cwi.pokemons.domain.entity.Pokemons
+import br.com.cwi.pokemons.presentation.features.pokemons.viewHolder.PokemonViewHolder
 
 class PokemonAdapter(
     private val list: List<Pokemons>,

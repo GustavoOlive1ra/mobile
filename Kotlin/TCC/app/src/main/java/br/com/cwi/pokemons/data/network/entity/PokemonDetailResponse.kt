@@ -7,5 +7,6 @@ class PokemonDetailResponse (
     @Json(name = "height") val height: Int,
     @Json(name = "name") val name: String,
     @Json(name = "weight") val weight: Int,
-    @Json(name = "sprites") val pokemonSprites: PokemonSprites,
+    @Json(name = "sprites") val pokemonSpritesResponse: PokemonSpritesResponse,
+    @Json(name = "stats") val status: List<StatusResponse>
 )
