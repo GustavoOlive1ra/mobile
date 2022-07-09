@@ -7,7 +7,8 @@ class PokemonSpeciesMapper(private val flavorTextEntriesMapper: FlavorTextEntrie
 
     override fun toDomain(from: PokemonSpeciesResponse): PokemonSpecies {
         return PokemonSpecies(
-            description = flavorTextEntriesMapper.toDomain(from.textEntry)
+            description = flavorTextEntriesMapper.toDomain(from.textEntry),
+            habitat = from.habitat.name
         )
     }
 

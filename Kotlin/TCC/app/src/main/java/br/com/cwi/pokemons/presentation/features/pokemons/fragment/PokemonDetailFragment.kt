@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import br.com.cwi.pokemons.R
 import br.com.cwi.pokemons.databinding.FragmentPokemonDetailBinding
 import br.com.cwi.pokemons.domain.entity.Ability
 import br.com.cwi.pokemons.domain.entity.PokemonDetail
@@ -14,6 +17,7 @@ import br.com.cwi.pokemons.presentation.features.pokemons.PokemonDetailViewModel
 import br.com.cwi.pokemons.presentation.features.pokemons.adapter.PokemonExpandListAdapter
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 const val LANGUAGE_TARGET = "en"
 const val PREVIUS_TEXT = "Text entry: "
@@ -44,7 +48,19 @@ class PokemonDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpViewModel()
+        setUpToolbar()
+    }
 
+    private fun setUpToolbar() {
+        binding.toolbar.apply {
+            (activity as AppCompatActivity?)!!.setSupportActionBar(this)
+            setTitle(pokemonName.uppercase())
+            setTitleTextColor(ContextCompat.getColor(context, R.color.white))
+            setNavigationIcon(R.drawable.ic_arrow_back);
+            setNavigationOnClickListener {
+                activity?.onBackPressed();
+            }
+        }
     }
 
     private fun setUpViewModel() {
@@ -53,6 +69,7 @@ class PokemonDetailFragment : Fragment() {
         }
         viewModel.pokemonSpecies.observe(viewLifecycleOwner) { pokemonSpecies ->
             setUpPokemonSpeciesView(pokemonSpecies)
+            setUpBackgroundPokemon(pokemonSpecies)
         }
         viewModel.fetchPokemonsInfos(pokemonName)
     }
@@ -74,7 +91,8 @@ class PokemonDetailFragment : Fragment() {
         )
     }
 
-    private fun setupExpandableListView(pokemonDetail: PokemonDetail
+    private fun setupExpandableListView(
+        pokemonDetail: PokemonDetail
     ) {
         val titleList = listOf(KEY_ABILITY, KEY_STATUS)
         val dataList = hashMapOf(
@@ -98,6 +116,21 @@ class PokemonDetailFragment : Fragment() {
 
     private fun statusToStringList(status: List<Status>): List<String> {
         return status.map { status -> "${status.name}: ${status.value}" }
+    }
+
+    private fun setUpBackgroundPokemon(pokemonSpecies: PokemonSpecies){
+        var getResorces = when(pokemonSpecies.habitat) {
+            "grassland" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.grassland_2)
+            "forest" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.forest)
+            "cave" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.cave)
+            "mountain" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.mountain)
+            "rough-terrain" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.rough_terrain)
+            "sea" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.sea)
+            "urban" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.urban)
+            "waters-edge" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.waters_edge)
+            else -> ContextCompat.getDrawable(binding.root.context ,R.drawable.grassland)
+        }
+        binding.clPokemonCard.background = getResorces
     }
 }
 

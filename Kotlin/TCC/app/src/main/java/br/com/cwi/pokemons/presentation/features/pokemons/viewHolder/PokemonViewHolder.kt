@@ -1,5 +1,8 @@
 package br.com.cwi.pokemons.presentation.features.pokemons.viewHolder
 
+import android.content.res.Resources
+import android.graphics.Color
+import android.view.RoundedCorner
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -19,16 +22,26 @@ class PokemonViewHolder(
     val ivPokemon = ItemPokemonBinding.bind(item).ivPokemon
 
     fun bind(pokemon: Pokemons) {
+        Glide.with(itemView.context).load(pokemon.image).into(ivPokemon)
         if(pokemon.unlocked){
             tvName.text = pokemon.name.uppercase()
-            Glide.with(itemView.context).load(pokemon.image).into(ivPokemon)
-        }else{
-            tvName.text = UNLOCKED_TEXT
-            with(ivPokemon) {
-                setImageDrawable(ContextCompat.getDrawable(context, R.drawable.pokebola))
+            tvName.setTextColor(ContextCompat.getColor(itemView.context ,R.color.black))
+            ivPokemon.setColorFilter(null)
+            with(itemView){
+                setBackgroundColor(ContextCompat.getColor(itemView.context ,R.color.white))
             }
-            Glide.with(itemView.context).load(pokemon.image).into(ivPokemon)
+            
+        }else{
+            with(tvName) {
+                text = UNLOCKED_TEXT
+                setTextColor(ContextCompat.getColor(itemView.context ,R.color.white))
+            }
+            ivPokemon.setColorFilter(Color.argb(255, 0, 0, 0))
+            with(itemView){
+                setBackgroundColor(ContextCompat.getColor(itemView.context ,R.color.card_blue))
+            }
         }
+
         itemView.setOnClickListener {
             onPokemonClick(pokemon.name)
         }

@@ -20,10 +20,16 @@ class PokemonsViewModel(
     fun fetchPokemons() {
         viewModelScope.launch {
             val pokemonResponse = pokemonRepository.getPokemons()
-            pokemonResponse.forEach {
+            attUnlockedPokemons(pokemonResponse)
+        }
+    }
+
+    fun attUnlockedPokemons(pokemons: List<Pokemons>){
+        viewModelScope.launch {
+            pokemons.forEach {
                 it.unlocked = unlockedPokemonRepository.isUnlockedPokemon(it.name)
             }
-            _pokemons.postValue(pokemonResponse)
+            _pokemons.postValue(pokemons)
         }
     }
 }

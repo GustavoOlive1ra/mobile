@@ -9,13 +9,11 @@
             android:id="@+id/iv_title"
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            android:outlineSpotShadowColor="@color/black"
             android:paddingVertical="15dp"
             android:src="@drawable/pokemon_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@android:drawable/dialog_holo_light_frame"
             />
 
 

@@ -2,6 +2,7 @@ package br.com.cwi.pokemons.presentation.features.pokemons.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
@@ -35,6 +36,13 @@ class PokemonsFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpViewModel()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.pokemons.value?.let{ pokemons->
+            viewModel.attUnlockedPokemons(pokemons)
+        }
     }
 
     private fun setUpViewModel() {
