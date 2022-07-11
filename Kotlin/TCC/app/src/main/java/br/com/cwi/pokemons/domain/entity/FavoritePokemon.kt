@@ -1,5 +1,5 @@
 package br.com.cwi.pokemons.domain.entity
 
-class UnlockedPokemon(
+class FavoritePokemon (
     var name: String
 )

@@ -6,6 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".presentation.features.profile.ProfileActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_profile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:layout_margin="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/iv_profile"
+            app:layout_constraintStart_toStartOf="@+id/iv_profile"
+            app:layout_constraintTop_toBottomOf="@+id/iv_profile"
+            tools:text="Name" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_margin="10dp"
+
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_name" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_profile"
+            app:layout_constraintStart_toStartOf="@+id/iv_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_favorite"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_favorite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_favorite_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_favorite"
+                app:layout_constraintStart_toEndOf="@+id/iv_favorite"
+                app:layout_constraintTop_toTopOf="@+id/iv_favorite"
+                tools:text="150" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_unlocked"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:padding="4dp"
+                android:src="@drawable/pokebola"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_favorite"
+                app:layout_constraintStart_toEndOf="@+id/tv_favorite_count"
+                app:layout_constraintTop_toTopOf="@+id/iv_favorite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_unlocked_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_unlocked"
+                app:layout_constraintStart_toEndOf="@+id/iv_unlocked"
+                app:layout_constraintTop_toTopOf="@+id/iv_unlocked"
+                tools:text="150" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -15,5 +109,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_bottom_navigation" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

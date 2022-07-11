@@ -25,5 +25,4 @@ class PokemonAdapter (
     }
 
     override fun getItemCount() = list.size
-
 }

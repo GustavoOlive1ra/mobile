@@ -7,5 +7,6 @@ class PokemonDetail(
     val weight: Int,
     val image: String,
     val status: List<Status>,
-    val ability: List<Ability>
+    val ability: List<Ability>,
+    var isFavorite: Boolean = false,
 )

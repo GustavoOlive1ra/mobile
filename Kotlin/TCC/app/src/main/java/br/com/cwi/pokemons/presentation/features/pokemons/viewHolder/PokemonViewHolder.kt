@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.cwi.pokemons.R
 import br.com.cwi.pokemons.databinding.ItemPokemonBinding
 import br.com.cwi.pokemons.domain.entity.Pokemons
+import br.com.cwi.pokemons.presentation.extension.visibleOrGone
 import com.bumptech.glide.Glide
 private const val UNLOCKED_TEXT = "???"
 
@@ -20,6 +21,7 @@ class PokemonViewHolder(
     RecyclerView.ViewHolder(item) {
     val tvName = ItemPokemonBinding.bind(item).tvName
     val ivPokemon = ItemPokemonBinding.bind(item).ivPokemon
+    val ivFavorite = ItemPokemonBinding.bind(item).ivFavorite
 
     fun bind(pokemon: Pokemons) {
         Glide.with(itemView.context).load(pokemon.image).into(ivPokemon)
@@ -42,6 +44,8 @@ class PokemonViewHolder(
             }
         }
 
+
+        ivFavorite.visibleOrGone(pokemon.favorite)
         itemView.setOnClickListener {
             onPokemonClick(pokemon.name)
         }

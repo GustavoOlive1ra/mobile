@@ -22,4 +22,7 @@ interface UnlockedPokemonDao {
 
     @Query("SELECT EXISTS(SELECT * FROM UnlockedPokemonEntity WHERE name=:name)")
     fun isUnlockedPokemon(name: String) : Boolean
+
+    @Query("SELECT COUNT(id) FROM UnlockedPokemonEntity")
+    fun getCountUnlocked(): Int
 }

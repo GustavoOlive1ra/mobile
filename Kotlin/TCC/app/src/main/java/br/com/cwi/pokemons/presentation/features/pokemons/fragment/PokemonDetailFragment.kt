@@ -77,8 +77,23 @@ class PokemonDetailFragment : Fragment() {
     private fun setUpPokemonDetailView(pokemonDetail: PokemonDetail) {
         binding.tvName.text = pokemonDetail.name.uppercase()
         Glide.with(binding.root).load(pokemonDetail.image).into(binding.ivPokemon)
+        binding.ivFavorite.apply {
+            setImageDrawable(getFavoriteIcon(pokemonDetail))
+            setOnClickListener {
+                pokemonDetail.isFavorite = !pokemonDetail.isFavorite
+                setImageDrawable(getFavoriteIcon(pokemonDetail))
+                viewModel.setUpFavoritePokemon(pokemonDetail)
+            }
+        }
         setupExpandableListView(pokemonDetail)
     }
+
+    private fun getFavoriteIcon(pokemon: PokemonDetail) = ContextCompat.getDrawable(
+        binding.root.context,
+        if (pokemon.isFavorite) R.drawable.ic_favorite
+        else R.drawable.ic_not_favorite
+    )
+
 
     private fun setUpPokemonSpeciesView(pokemonSpecies: PokemonSpecies) {
         binding.tvEntryTxt.text = PREVIUS_TEXT + findFirstDescriptionLanguage(pokemonSpecies)
