@@ -1,8 +1,6 @@
 package br.com.cwi.pokemons.presentation.features.pokemons.viewHolder
 
-import android.content.res.Resources
 import android.graphics.Color
-import android.view.RoundedCorner
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +9,7 @@ import br.com.cwi.pokemons.databinding.ItemPokemonBinding
 import br.com.cwi.pokemons.domain.entity.Pokemons
 import br.com.cwi.pokemons.presentation.extension.visibleOrGone
 import com.bumptech.glide.Glide
+
 private const val UNLOCKED_TEXT = "???"
 
 

@@ -4,9 +4,9 @@ import br.com.cwi.pokemons.data.database.entity.ProfileEntity
 import br.com.cwi.pokemons.domain.entity.Profile
 
 fun Profile.toProfileEntity() = ProfileEntity(
-    name = name, id = id, qtdFavorite = qtdFavorite, qtdUnlocked = qtdUnlocked
+    name = name, id = id, qtdFavorite = qtdFavorite, qtdUnlocked = qtdUnlocked, image = image
 )
 
 fun ProfileEntity.toProfile() = Profile(
-    name = name, id = id, qtdFavorite = qtdFavorite, qtdUnlocked = qtdUnlocked
+    name = name, id = id, qtdFavorite = qtdFavorite, qtdUnlocked = qtdUnlocked, image = image
 )

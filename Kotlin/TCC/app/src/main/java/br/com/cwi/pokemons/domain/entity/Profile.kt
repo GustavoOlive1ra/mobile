@@ -1,8 +1,11 @@
 package br.com.cwi.pokemons.domain.entity
 
+import android.net.Uri
+
 class Profile(
-    val id: Int?,
-    val name: String,
+    var id: Int?,
+    var name: String,
     var qtdFavorite: Int,
-    var qtdUnlocked: Int
+    var qtdUnlocked: Int,
+    var image: String?
 )

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.features.profile.ProfileActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -15,44 +16,103 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_profile"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_profile"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:elevation="12dp"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9"
+            app:cardCornerRadius="75dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_profile" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="26sp"
-            android:layout_margin="15dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/iv_profile"
-            app:layout_constraintStart_toStartOf="@+id/iv_profile"
-            app:layout_constraintTop_toBottomOf="@+id/iv_profile"
-            tools:text="Name" />
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_profile"
+                android:elevation="13dp"/>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_margin="10dp"
-
-            android:src="@drawable/ic_edit"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_name"
-            app:layout_constraintStart_toEndOf="@+id/tv_name"
-            app:layout_constraintTop_toTopOf="@+id/tv_name" />
+            android:id="@+id/iv_camera"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:elevation="13dp"
+            android:src="@drawable/ic_camera"
+            app:layout_constraintBottom_toBottomOf="@+id/cv_profile"
+            app:layout_constraintEnd_toEndOf="@+id/cv_profile" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_name"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="@+id/cv_profile"
+            app:layout_constraintStart_toStartOf="@+id/cv_profile"
+            app:layout_constraintTop_toBottomOf="@+id/cv_profile">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="6dp"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Name" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_name"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:minWidth="100dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Name" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_checkbox"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_checkbox"
+                app:layout_constraintBottom_toBottomOf="@+id/ed_name"
+                app:layout_constraintStart_toEndOf="@+id/ed_name"
+                app:layout_constraintTop_toTopOf="@+id/ed_name" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_edit"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+                app:layout_constraintStart_toEndOf="@+id/tv_name"
+                app:layout_constraintTop_toTopOf="@+id/tv_name" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="@+id/iv_profile"
-            app:layout_constraintStart_toStartOf="@+id/iv_profile"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name">
+            app:layout_constraintEnd_toEndOf="@+id/cv_profile"
+            app:layout_constraintStart_toStartOf="@+id/cv_profile"
+            app:layout_constraintTop_toBottomOf="@+id/cl_name">
 
 
             <androidx.appcompat.widget.AppCompatImageView

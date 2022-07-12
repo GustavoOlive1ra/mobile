@@ -17,6 +17,10 @@ class ProfileRepositoryImpl (
         dao.getProfileDao().add(profile.toProfileEntity())
     }
 
+    override suspend fun updateProfile(profile: Profile) {
+        dao.getProfileDao().update(profile.toProfileEntity())
+    }
+
     override suspend fun getProfileById(id: Int): Profile? {
         val profile = dao.getProfileDao().getProfileById(id) ?: profileDefault()
         profile.apply{
@@ -27,6 +31,6 @@ class ProfileRepositoryImpl (
     }
 
     private fun profileDefault(): ProfileEntity{
-        return ProfileEntity(id = null, name = "Your name", qtdUnlocked = 0, qtdFavorite = 0)
+        return ProfileEntity(id = null, name = "Your name", qtdUnlocked = 0, qtdFavorite = 0, image = null)
     }
 }

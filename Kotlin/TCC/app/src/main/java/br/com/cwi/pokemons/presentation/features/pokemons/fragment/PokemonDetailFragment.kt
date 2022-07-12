@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import br.com.cwi.pokemons.R
 import br.com.cwi.pokemons.databinding.FragmentPokemonDetailBinding
 import br.com.cwi.pokemons.domain.entity.Ability
@@ -15,6 +16,7 @@ import br.com.cwi.pokemons.domain.entity.PokemonSpecies
 import br.com.cwi.pokemons.domain.entity.Status
 import br.com.cwi.pokemons.presentation.features.pokemons.PokemonDetailViewModel
 import br.com.cwi.pokemons.presentation.features.pokemons.adapter.PokemonExpandListAdapter
+import br.com.cwi.pokemons.presentation.features.pokemons.adapter.PokemonTypeAdapter
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -85,6 +87,10 @@ class PokemonDetailFragment : Fragment() {
                 viewModel.setUpFavoritePokemon(pokemonDetail)
             }
         }
+        binding.rvType.apply {
+            layoutManager = GridLayoutManager(context, 1)
+            adapter = PokemonTypeAdapter(pokemonDetail.type)
+        }
         setupExpandableListView(pokemonDetail)
     }
 
@@ -118,7 +124,7 @@ class PokemonDetailFragment : Fragment() {
             Pair(
                 KEY_ABILITY,
                 abilityToStringList(pokemonDetail.ability)
-            )
+            ),
         )
         binding.evInfos.apply {
             setAdapter(PokemonExpandListAdapter(context, titleList, dataList))

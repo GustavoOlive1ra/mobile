@@ -1,9 +1,6 @@
 package br.com.cwi.pokemons.data.database.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import br.com.cwi.pokemons.data.database.entity.ProfileEntity
 @Dao
 interface ProfileDao {
@@ -12,6 +9,9 @@ interface ProfileDao {
 
     @Delete
     fun remove(profileEntity: ProfileEntity)
+
+    @Update
+    fun update(profileEntity: ProfileEntity)
 
     @Query("SELECT * FROM ProfileEntity")
     fun getAll(): List<ProfileEntity>?

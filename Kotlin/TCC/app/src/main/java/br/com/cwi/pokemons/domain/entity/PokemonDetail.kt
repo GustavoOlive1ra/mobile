@@ -8,5 +8,6 @@ class PokemonDetail(
     val image: String,
     val status: List<Status>,
     val ability: List<Ability>,
+    val type: List<Type>,
     var isFavorite: Boolean = false,
 )

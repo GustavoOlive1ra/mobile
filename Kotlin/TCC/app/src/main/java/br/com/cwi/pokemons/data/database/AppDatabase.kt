@@ -11,7 +11,7 @@ import br.com.cwi.pokemons.data.database.entity.FavoritePokemonEntity
 import br.com.cwi.pokemons.data.database.entity.ProfileEntity
 import br.com.cwi.pokemons.data.database.entity.UnlockedPokemonEntity
 
-@Database(entities = [UnlockedPokemonEntity::class, FavoritePokemonEntity::class, ProfileEntity::class], version = 1)
+@Database(entities = [UnlockedPokemonEntity::class, FavoritePokemonEntity::class, ProfileEntity::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getUnlockedPokemonDao(): UnlockedPokemonDao

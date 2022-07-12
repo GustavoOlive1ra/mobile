@@ -17,12 +17,13 @@ import org.koin.dsl.module
 val dataModule = module {
 
     single { RetrofitConfig.service }
-    single { PokemonDetailMapper(get(),get()) }
+    single { PokemonDetailMapper(get(),get(), get()) }
     single { PokemonBaseMapper() }
     single { AbilitiesMapper() }
     single { FlavorTextEntriesMapper() }
     single { PokemonSpeciesMapper(get()) }
     single { StatusMapper() }
+    single { TypeMapper() }
 
     single { AppDatabase.create(androidApplication()) }
 
