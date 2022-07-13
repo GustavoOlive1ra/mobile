@@ -1,5 +1,9 @@
 package br.com.cwi.pokemons.domain.entity
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 class PokemonDetail(
     val id: Int,
     val height: Int,
@@ -10,4 +14,4 @@ class PokemonDetail(
     val ability: List<Ability>,
     val type: List<Type>,
     var isFavorite: Boolean = false,
-)
+): Parcelable

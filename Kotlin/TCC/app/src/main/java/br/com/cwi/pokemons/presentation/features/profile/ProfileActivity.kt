@@ -20,6 +20,7 @@ import br.com.cwi.pokemons.presentation.extension.visibleOrGone
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import android.util.Base64
+import br.com.cwi.pokemons.presentation.extension.toBitmap
 
 
 const val REQUEST_CODE = 1000
@@ -78,11 +79,7 @@ class ProfileActivity : BaseBottomNavigation() {
                 }
             }
             profile.image?.let {
-               val decodedString: ByteArray = Base64.decode(it, Base64.DEFAULT)
-                val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
-
-
-                ivProfile.setImageBitmap(decodedByte)
+                ivProfile.setImageBitmap(it.toBitmap())
             }
         }
         choseImage()

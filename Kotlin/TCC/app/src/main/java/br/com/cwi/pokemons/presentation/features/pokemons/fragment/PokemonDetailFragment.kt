@@ -1,5 +1,6 @@
 package br.com.cwi.pokemons.presentation.features.pokemons.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import br.com.cwi.pokemons.domain.entity.Ability
 import br.com.cwi.pokemons.domain.entity.PokemonDetail
 import br.com.cwi.pokemons.domain.entity.PokemonSpecies
 import br.com.cwi.pokemons.domain.entity.Status
+import br.com.cwi.pokemons.presentation.features.battle.BattleHostActivity
 import br.com.cwi.pokemons.presentation.features.pokemons.PokemonDetailViewModel
 import br.com.cwi.pokemons.presentation.features.pokemons.adapter.PokemonExpandListAdapter
 import br.com.cwi.pokemons.presentation.features.pokemons.adapter.PokemonTypeAdapter
@@ -27,6 +29,8 @@ const val LINE_BREAK = "\n"
 const val SPACE = " "
 const val KEY_ABILITY = "Ability"
 const val KEY_STATUS = "Status"
+
+const val POKEMON_CHOSE = "chose"
 
 class PokemonDetailFragment : Fragment() {
 
@@ -91,6 +95,11 @@ class PokemonDetailFragment : Fragment() {
             layoutManager = GridLayoutManager(context, 1)
             adapter = PokemonTypeAdapter(pokemonDetail.type)
         }
+        binding.ivBattle.setOnClickListener {
+            val intent = Intent(context, BattleHostActivity::class.java).putExtra(POKEMON_CHOSE, pokemonDetail)
+            startActivity(intent)
+        }
+
         setupExpandableListView(pokemonDetail)
     }
 

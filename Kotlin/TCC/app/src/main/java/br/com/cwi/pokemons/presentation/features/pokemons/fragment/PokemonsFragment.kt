@@ -53,11 +53,11 @@ class PokemonsFragment: Fragment() {
     private fun setUpPokemonsRecyclerView(list: List<Pokemons>) {
         binding.rvPokemons.apply {
             layoutManager = GridLayoutManager(context, 3)
-            adapter = PokemonAdapter(list, {navigationToPokemonDatail(it)})
+            adapter = PokemonAdapter(list, {navigationToPokemonDetail(it)})
         }
     }
 
-    private fun navigationToPokemonDatail(name: String){
+    private fun navigationToPokemonDetail(name: String){
         findNavController().navigate(
             R.id.action_pokemonsFragment_to_pokemonsDetailFragment, bundleOf(
             Pair(KEY_NAME_POKEMON, name)

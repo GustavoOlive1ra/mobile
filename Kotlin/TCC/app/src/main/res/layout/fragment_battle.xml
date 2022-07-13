@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF0000"
+        app:titleTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_first_opponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/iv_versus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_first_opponent"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:src="@drawable/pokebola"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_first_opponent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_first_opponent"
+            app:layout_constraintStart_toStartOf="@+id/iv_first_opponent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_first_opponent"
+            tools:text="pokemon name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_versus"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_battle"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_second_opponent"
+        app:layout_constraintEnd_toStartOf="@+id/cl_second_opponent"
+        app:layout_constraintStart_toEndOf="@+id/cl_first_opponent"
+        app:layout_constraintTop_toTopOf="@+id/cl_second_opponent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_second_opponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_versus"
+        app:layout_constraintTop_toTopOf="@+id/cl_first_opponent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_second_opponent"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:src="@drawable/pokebola"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_second_opponent"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/iv_second_opponent"
+            app:layout_constraintStart_toStartOf="@+id/iv_second_opponent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_second_opponent"
+            tools:text="pokemon name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

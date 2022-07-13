@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_battle"
+    app:startDestination="@id/battleChoiceFragment">
+
+    <fragment
+        android:id="@+id/battleChoiceFragment"
+        android:name="br.com.cwi.pokemons.presentation.features.battle.fragment.BattleChoiceFragment"
+        android:label="BattleChoiceFragment"
+        tools:layout="@layout/fragment_battle_choice_opponent">
+        <action
+            android:id="@+id/action_battleChoiceFragment_to_battleFragment"
+            app:destination="@id/battleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/battleFragment"
+        android:name="br.com.cwi.pokemons.presentation.features.battle.fragment.BattleFragment"
+        android:label="BattleFragment"
+        tools:layout="@layout/fragment_battle"/>
+</navigation>
