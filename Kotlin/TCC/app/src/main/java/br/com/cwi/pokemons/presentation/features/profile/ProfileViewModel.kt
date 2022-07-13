@@ -1,6 +1,6 @@
 package br.com.cwi.pokemons.presentation.features.profile
 
-import android.net.Uri
+import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +8,10 @@ import androidx.lifecycle.viewModelScope
 import br.com.cwi.pokemons.domain.entity.Profile
 import br.com.cwi.pokemons.domain.repository.ProfileRepository
 import kotlinx.coroutines.launch
+import java.io.ByteArrayOutputStream
+import android.util.Base64
+import java.util.*
+
 
 const val ID_DEFAULT = 1
 
@@ -44,15 +48,19 @@ class ProfileViewModel(
         fetchProfile()
     }
 
-    fun setImage(uri: Uri?) {
-        uri?.let {
-            profile.value?.let { profile ->
-                profile.image = it.toString()
-                viewModelScope.launch {
-                    profileRepository.updateProfile(profile)
-                }
+    fun setImage(bitmap: Bitmap) {
+        val baos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val b = baos.toByteArray()
+        val string: String = Base64.encodeToString(b, Base64.DEFAULT)
+
+        profile.value?.let { profile ->
+            profile.image = string
+            viewModelScope.launch {
+                profileRepository.updateProfile(profile)
             }
         }
+
         fetchProfile()
     }
 }

@@ -4,9 +4,11 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
@@ -17,6 +19,7 @@ import br.com.cwi.pokemons.presentation.base.BaseBottomNavigation
 import br.com.cwi.pokemons.presentation.extension.visibleOrGone
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import android.util.Base64
 
 
 const val REQUEST_CODE = 1000
@@ -75,8 +78,11 @@ class ProfileActivity : BaseBottomNavigation() {
                 }
             }
             profile.image?.let {
-                val mUri: Uri = Uri.parse(it)
-                ivProfile.setImageURI(mUri)
+               val decodedString: ByteArray = Base64.decode(it, Base64.DEFAULT)
+                val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+
+
+                ivProfile.setImageBitmap(decodedByte)
             }
         }
         choseImage()
@@ -104,7 +110,6 @@ class ProfileActivity : BaseBottomNavigation() {
         }
     }
 
-
     private fun chooseImageGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
@@ -130,7 +135,8 @@ class ProfileActivity : BaseBottomNavigation() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            viewModel.setImage(data?.data)
+            val bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),data?.data )
+            viewModel.setImage(bitmap)
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
