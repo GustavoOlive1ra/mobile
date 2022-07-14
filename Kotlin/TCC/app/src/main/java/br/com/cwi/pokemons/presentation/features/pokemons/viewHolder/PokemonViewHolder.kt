@@ -21,6 +21,7 @@ class PokemonViewHolder(
     val tvName = ItemPokemonBinding.bind(item).tvName
     val ivPokemon = ItemPokemonBinding.bind(item).ivPokemon
     val ivFavorite = ItemPokemonBinding.bind(item).ivFavorite
+    val clPokemon = ItemPokemonBinding.bind(item).clPokemon
 
     fun bind(pokemon: Pokemons) {
         Glide.with(itemView.context).load(pokemon.image).into(ivPokemon)
@@ -28,7 +29,7 @@ class PokemonViewHolder(
             tvName.text = pokemon.name.uppercase()
             tvName.setTextColor(ContextCompat.getColor(itemView.context ,R.color.black))
             ivPokemon.setColorFilter(null)
-            with(itemView){
+            with(clPokemon){
                 setBackgroundColor(ContextCompat.getColor(itemView.context ,R.color.white))
             }
             
@@ -38,7 +39,7 @@ class PokemonViewHolder(
                 setTextColor(ContextCompat.getColor(itemView.context ,R.color.white))
             }
             ivPokemon.setColorFilter(Color.argb(255, 0, 0, 0))
-            with(itemView){
+            with(clPokemon){
                 setBackgroundColor(ContextCompat.getColor(itemView.context ,R.color.card_blue))
             }
         }

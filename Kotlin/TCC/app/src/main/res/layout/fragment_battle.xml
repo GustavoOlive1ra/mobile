@@ -10,11 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FF0000"
-        app:titleTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:titleTextColor="@color/white" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_first_opponent"
@@ -38,9 +37,9 @@
             android:id="@+id/tv_first_opponent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/iv_first_opponent"
             app:layout_constraintStart_toStartOf="@+id/iv_first_opponent"
             app:layout_constraintTop_toBottomOf="@+id/iv_first_opponent"
@@ -77,14 +76,61 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_second_opponent"
             android:layout_width="wrap_content"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:layout_height="wrap_content"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/iv_second_opponent"
             app:layout_constraintStart_toStartOf="@+id/iv_second_opponent"
             app:layout_constraintTop_toBottomOf="@+id/iv_second_opponent"
             tools:text="pokemon name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="#BFFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/tv_result"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_first_opponent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_battle_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"
+            android:text="@string/txt_battle_log"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_battle_log"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_battle_log"
+            app:layout_constraintTop_toBottomOf="@+id/tv_battle_log" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="winner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

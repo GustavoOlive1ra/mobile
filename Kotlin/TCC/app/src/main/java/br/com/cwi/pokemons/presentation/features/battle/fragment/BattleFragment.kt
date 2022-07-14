@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.cwi.pokemons.R
 import br.com.cwi.pokemons.databinding.FragmentBattleBinding
 import br.com.cwi.pokemons.domain.entity.PokemonDetail
 import br.com.cwi.pokemons.presentation.features.battle.BattleViewModel
+import br.com.cwi.pokemons.presentation.features.battle.adapter.BattleAdapter
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -34,28 +36,29 @@ class BattleFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        viewModel.resetPokemonSecondChoice()
+        viewModel.resetPokemonBattle()
         super.onDestroyView()
     }
 
-    private fun setUpViewModel(){
-        viewModel.pokemonFirstChoice.value?.let{
-            setUpBattleViewFirstOpponent(it)
-        }
-        viewModel.pokemonSecondChoice.value?.let{
-            setUpBattleViewSecondOpponent(it)
+    private fun setUpViewModel() {
+        viewModel.pokemonFirstChoice.value?.let { first ->
+            setUpBattleViewFirstOpponent(first)
+            viewModel.pokemonSecondChoice.value?.let { second ->
+                setUpBattleViewSecondOpponent(second)
+                setUpBattleLog(first, second)
+            }
         }
         setUpToolbar()
     }
 
-    private fun setUpBattleViewFirstOpponent(pokemonDetail: PokemonDetail){
+    private fun setUpBattleViewFirstOpponent(pokemonDetail: PokemonDetail) {
         binding.apply {
             Glide.with(root.context).load(pokemonDetail.image).into(ivFirstOpponent)
             tvFirstOpponent.text = pokemonDetail.name.uppercase()
         }
     }
 
-    private fun setUpBattleViewSecondOpponent(pokemonDetail: PokemonDetail){
+    private fun setUpBattleViewSecondOpponent(pokemonDetail: PokemonDetail) {
         binding.apply {
             Glide.with(root.context).load(pokemonDetail.image).into(ivSecondOpponent)
             tvSecondOpponent.text = pokemonDetail.name.uppercase()
@@ -73,4 +76,21 @@ class BattleFragment : Fragment() {
             }
         }
     }
+
+    private fun setUpBattleLog(pokemonFirst: PokemonDetail, pokemonSecond: PokemonDetail) {
+        viewModel.battleLog.observe(viewLifecycleOwner) { list ->
+            binding.rvBattleLog.apply {
+                addItemDecoration(
+                    DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+                )
+                adapter = BattleAdapter(list)
+            }
+        }
+        viewModel.battleResult.observe(viewLifecycleOwner) {
+            binding.tvResult.text = it
+        }
+        viewModel.startBattle(pokemonFirst, pokemonSecond)
+    }
+
+
 }

@@ -17,11 +17,11 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 const val KEY_NAME_POKEMON = "pokemon_name"
 
-class PokemonsFragment: Fragment() {
+class PokemonsFragment : Fragment() {
 
     private lateinit var binding: FragmentPokemonBinding
 
-    private val viewModel : PokemonsViewModel by sharedViewModel()
+    private val viewModel: PokemonsViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,7 +39,7 @@ class PokemonsFragment: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.pokemons.value?.let{ pokemons->
+        viewModel.pokemons.value?.let { pokemons ->
             viewModel.refreshPokemonsUnlokedAndFavorite(pokemons)
         }
     }
@@ -53,15 +53,15 @@ class PokemonsFragment: Fragment() {
     private fun setUpPokemonsRecyclerView(list: List<Pokemons>) {
         binding.rvPokemons.apply {
             layoutManager = GridLayoutManager(context, 3)
-            adapter = PokemonAdapter(list, {navigationToPokemonDetail(it)})
+            adapter = PokemonAdapter(list, { navigationToPokemonDetail(it) })
         }
     }
 
-    private fun navigationToPokemonDetail(name: String){
+    private fun navigationToPokemonDetail(name: String) {
         findNavController().navigate(
             R.id.action_pokemonsFragment_to_pokemonsDetailFragment, bundleOf(
-            Pair(KEY_NAME_POKEMON, name)
-        )
+                Pair(KEY_NAME_POKEMON, name)
+            )
         )
     }
 }
