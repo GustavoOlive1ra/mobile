@@ -10,6 +10,7 @@ import br.com.cwi.pokemons.domain.entity.PokemonDetail
 import br.com.cwi.pokemons.domain.entity.Pokemons
 import br.com.cwi.pokemons.domain.repository.PokemonRepository
 import br.com.cwi.pokemons.domain.repository.UnlockedPokemonRepository
+import br.com.cwi.pokemons.presentation.base.BaseViewModel
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 
@@ -21,7 +22,7 @@ const val STATUS_HP = "hp"
 class BattleViewModel(
     private val pokemonRepository: PokemonRepository,
     private val unlockedPokemonRepository: UnlockedPokemonRepository
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _pokemons = MutableLiveData<List<Pokemons>>()
     val pokemons: LiveData<List<Pokemons>> = _pokemons
@@ -43,7 +44,7 @@ class BattleViewModel(
     val battleResult: LiveData<String> = _battleResult
 
     fun fetchPokemons() {
-        viewModelScope.launch {
+        launch {
             val pokemonResponse = pokemonRepository.getPokemons()
             val pokemons = setUpUnlockedPokemons(pokemonResponse)
             _pokemons.postValue(filterUnlockedPokemons(pokemons))
@@ -56,7 +57,7 @@ class BattleViewModel(
 
 
     private fun setUpUnlockedPokemons(pokemons: List<Pokemons>): List<Pokemons> {
-        viewModelScope.launch {
+        launch {
             pokemons.forEach {
                 it.unlocked = unlockedPokemonRepository.isUnlockedPokemon(it.name)
             }
@@ -69,7 +70,7 @@ class BattleViewModel(
     }
 
     fun setPokemonSecondChoice(name: String) {
-        viewModelScope.launch {
+        launch {
             val pokemonResponse = pokemonRepository.getPokemonDetail(name)
             _pokemonSecondChoice.postValue(pokemonResponse)
         }

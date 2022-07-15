@@ -29,6 +29,7 @@ const val LINE_BREAK = "\n"
 const val SPACE = " "
 const val KEY_ABILITY = "Ability"
 const val KEY_STATUS = "Status"
+const val KEY_SIZE = "Size"
 
 const val POKEMON_CHOSE = "chose"
 
@@ -96,7 +97,10 @@ class PokemonDetailFragment : Fragment() {
             adapter = PokemonTypeAdapter(pokemonDetail.type)
         }
         binding.ivBattle.setOnClickListener {
-            val intent = Intent(context, BattleHostActivity::class.java).putExtra(POKEMON_CHOSE, pokemonDetail)
+            val intent = Intent(context, BattleHostActivity::class.java).putExtra(
+                POKEMON_CHOSE,
+                pokemonDetail
+            )
             startActivity(intent)
         }
 
@@ -124,8 +128,12 @@ class PokemonDetailFragment : Fragment() {
     private fun setupExpandableListView(
         pokemonDetail: PokemonDetail
     ) {
-        val titleList = listOf(KEY_ABILITY, KEY_STATUS)
+        val titleList = listOf(KEY_SIZE, KEY_ABILITY, KEY_STATUS)
         val dataList = hashMapOf(
+            Pair(
+                KEY_SIZE,
+                sizeToStringList(pokemonDetail.height, pokemonDetail.weight)
+            ),
             Pair(
                 KEY_STATUS,
                 statusToStringList(pokemonDetail.status)
@@ -148,17 +156,24 @@ class PokemonDetailFragment : Fragment() {
         return status.map { status -> "${status.name}: ${status.value}" }
     }
 
-    private fun setUpBackgroundPokemon(pokemonSpecies: PokemonSpecies){
-        var getResorces = when(pokemonSpecies.habitat) {
-            "grassland" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.grassland_2)
-            "forest" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.forest)
-            "cave" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.cave)
-            "mountain" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.mountain)
-            "rough-terrain" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.rough_terrain)
-            "sea" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.sea)
-            "urban" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.urban)
-            "waters-edge" -> ContextCompat.getDrawable(binding.root.context ,R.drawable.waters_edge)
-            else -> ContextCompat.getDrawable(binding.root.context ,R.drawable.grassland)
+    private fun sizeToStringList(height: Int, weight: Int): List<String> {
+        return listOf("Height: $height", "Weight: $weight")
+    }
+
+    private fun setUpBackgroundPokemon(pokemonSpecies: PokemonSpecies) {
+        var getResorces = when (pokemonSpecies.habitat) {
+            "grassland" -> ContextCompat.getDrawable(binding.root.context, R.drawable.grassland_2)
+            "forest" -> ContextCompat.getDrawable(binding.root.context, R.drawable.forest)
+            "cave" -> ContextCompat.getDrawable(binding.root.context, R.drawable.cave)
+            "mountain" -> ContextCompat.getDrawable(binding.root.context, R.drawable.mountain)
+            "rough-terrain" -> ContextCompat.getDrawable(
+                binding.root.context,
+                R.drawable.rough_terrain
+            )
+            "sea" -> ContextCompat.getDrawable(binding.root.context, R.drawable.sea)
+            "urban" -> ContextCompat.getDrawable(binding.root.context, R.drawable.urban)
+            "waters-edge" -> ContextCompat.getDrawable(binding.root.context, R.drawable.waters_edge)
+            else -> ContextCompat.getDrawable(binding.root.context, R.drawable.grassland)
         }
         binding.clPokemonCard.background = getResorces
     }

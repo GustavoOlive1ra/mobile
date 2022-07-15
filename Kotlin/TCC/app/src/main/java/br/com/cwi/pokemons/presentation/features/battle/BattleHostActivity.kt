@@ -7,6 +7,7 @@ import br.com.cwi.pokemons.R
 import br.com.cwi.pokemons.databinding.ActivityBattleHostBinding
 import br.com.cwi.pokemons.domain.entity.PokemonDetail
 import br.com.cwi.pokemons.presentation.base.BaseBottomNavigation
+import br.com.cwi.pokemons.presentation.extension.visibleOrGone
 import br.com.cwi.pokemons.presentation.features.pokemons.fragment.POKEMON_CHOSE
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -36,6 +37,13 @@ class BattleHostActivity : BaseBottomNavigation() {
     }
 
     private fun setUpViewmodel() {
+        viewModel.loading.observe(this) { isLoading ->
+            binding.viewLoading.root.visibleOrGone(isLoading)
+        }
+        viewModel.error.observe(this) { isError ->
+            binding.viewError.root.visibleOrGone(isError)
+            binding.navHostContainner.visibleOrGone(!isError)
+        }
         viewModel.setPokemonFirstChoice(pokemonFirstChose)
         viewModel.fetchPokemons()
     }

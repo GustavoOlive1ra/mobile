@@ -12,13 +12,14 @@ import br.com.cwi.pokemons.domain.entity.UnlockedPokemon
 import br.com.cwi.pokemons.domain.repository.FavoritePokemonRepository
 import br.com.cwi.pokemons.domain.repository.PokemonRepository
 import br.com.cwi.pokemons.domain.repository.UnlockedPokemonRepository
+import br.com.cwi.pokemons.presentation.base.BaseViewModel
 import kotlinx.coroutines.launch
 
 class PokemonDetailViewModel(
     private val pokemonRepository: PokemonRepository,
     private val unlockedPokemonRepository: UnlockedPokemonRepository,
     private val favoritePokemonRepository: FavoritePokemonRepository
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _pokemonDetail = MutableLiveData<PokemonDetail>()
     val pokemonDetail: LiveData<PokemonDetail> = _pokemonDetail
@@ -33,7 +34,7 @@ class PokemonDetailViewModel(
     }
 
     private fun setUpUnlockedPokemon(name: String){
-        viewModelScope.launch {
+        launch {
             if(!unlockedPokemonRepository.isUnlockedPokemon(name)){
                 val newUnlockedPokemon = UnlockedPokemon(name)
                 unlockedPokemonRepository.addUnlockedPokemons(newUnlockedPokemon)
@@ -42,7 +43,7 @@ class PokemonDetailViewModel(
     }
 
     fun setUpFavoritePokemon(pokemonDetail: PokemonDetail){
-        viewModelScope.launch {
+        launch {
             if(!favoritePokemonRepository.isFavoritePokemon(pokemonDetail.name)){
                 val newFavoritePokemonPokemon = FavoritePokemon(pokemonDetail.name)
                 favoritePokemonRepository.addFavoritePokemons(newFavoritePokemonPokemon)
@@ -53,7 +54,7 @@ class PokemonDetailViewModel(
     }
 
     fun fetchPokemonDetail(name: String) {
-        viewModelScope.launch {
+        launch {
             val pokemonResponse = pokemonRepository.getPokemonDetail(name)
             pokemonResponse.isFavorite = favoritePokemonRepository.isFavoritePokemon(pokemonResponse.name)
             _pokemonDetail.postValue(pokemonResponse)
@@ -61,7 +62,7 @@ class PokemonDetailViewModel(
     }
 
     fun fetchPokemonSpecies(name: String) {
-        viewModelScope.launch {
+        launch {
             _pokemonSpecies.postValue(pokemonRepository.getPokemonSpecies(name))
         }
     }

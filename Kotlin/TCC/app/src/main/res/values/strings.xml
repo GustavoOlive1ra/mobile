@@ -7,4 +7,6 @@
     <string name="txt_two_points">:</string>
     <string name="txt_create_profile">Create your profile</string>
     <string name="txt_battle_log">Battle log:</string>
+    <string name="something_wrong">Something Wrong</string>
+    <string name="try_again_later">Try again later</string>
 </resources>

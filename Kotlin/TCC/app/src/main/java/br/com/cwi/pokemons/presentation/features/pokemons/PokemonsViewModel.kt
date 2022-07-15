@@ -8,19 +8,20 @@ import br.com.cwi.pokemons.domain.entity.Pokemons
 import br.com.cwi.pokemons.domain.repository.FavoritePokemonRepository
 import br.com.cwi.pokemons.domain.repository.PokemonRepository
 import br.com.cwi.pokemons.domain.repository.UnlockedPokemonRepository
+import br.com.cwi.pokemons.presentation.base.BaseViewModel
 import kotlinx.coroutines.launch
 
 class PokemonsViewModel(
     private val pokemonRepository: PokemonRepository,
     private val unlockedPokemonRepository: UnlockedPokemonRepository,
     private val favoritePokemonRepository: FavoritePokemonRepository
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _pokemons = MutableLiveData<List<Pokemons>>()
     val pokemons: LiveData<List<Pokemons>> = _pokemons
 
     fun fetchPokemons() {
-        viewModelScope.launch {
+        launch {
             val pokemonResponse = pokemonRepository.getPokemons()
             refreshPokemonsUnlokedAndFavorite(pokemonResponse)
         }
@@ -34,7 +35,7 @@ class PokemonsViewModel(
 
 
     private fun setUpUnlockedPokemons(pokemons: List<Pokemons>): List<Pokemons>{
-        viewModelScope.launch {
+        launch {
             pokemons.forEach {
                 it.unlocked = unlockedPokemonRepository.isUnlockedPokemon(it.name)
             }
@@ -44,7 +45,7 @@ class PokemonsViewModel(
 
 
     private fun setUpFavoritePokemons(pokemons: List<Pokemons>): List<Pokemons>{
-        viewModelScope.launch {
+        launch {
             pokemons.forEach {
                 it.favorite = favoritePokemonRepository.isFavoritePokemon(it.name)
             }

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.cwi.pokemons.R
 import br.com.cwi.pokemons.databinding.FragmentBattleBinding
 import br.com.cwi.pokemons.domain.entity.PokemonDetail
+import br.com.cwi.pokemons.presentation.extension.visibleOrGone
 import br.com.cwi.pokemons.presentation.features.battle.BattleViewModel
 import br.com.cwi.pokemons.presentation.features.battle.adapter.BattleAdapter
 import com.bumptech.glide.Glide
@@ -88,7 +89,9 @@ class BattleFragment : Fragment() {
         }
         viewModel.battleResult.observe(viewLifecycleOwner) {
             binding.tvResult.text = it
+            binding.tvResult.visibleOrGone(true)
         }
+        binding.tvResult.visibleOrGone(false)
         viewModel.startBattle(pokemonFirst, pokemonSecond)
     }
 

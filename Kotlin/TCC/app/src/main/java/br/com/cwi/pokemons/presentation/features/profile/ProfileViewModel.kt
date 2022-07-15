@@ -7,10 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.cwi.pokemons.domain.entity.Profile
 import br.com.cwi.pokemons.domain.repository.ProfileRepository
+import br.com.cwi.pokemons.presentation.extension.toStringBase64
 import kotlinx.coroutines.launch
-import java.io.ByteArrayOutputStream
-import android.util.Base64
-import java.util.*
 
 
 const val ID_DEFAULT = 1
@@ -49,18 +47,22 @@ class ProfileViewModel(
     }
 
     fun setImage(bitmap: Bitmap) {
-        val baos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-        val b = baos.toByteArray()
-        val string: String = Base64.encodeToString(b, Base64.DEFAULT)
-
-        profile.value?.let { profile ->
-            profile.image = string
-            viewModelScope.launch {
-                profileRepository.updateProfile(profile)
+        if (profile.value?.id == null) {
+            profile.value?.let { profile ->
+                profile.id = ID_DEFAULT
+                profile.image = bitmap.toStringBase64()
+                viewModelScope.launch {
+                    profileRepository.addProfile(profile)
+                }
+            }
+        } else {
+            profile.value?.let { profile ->
+                profile.image = bitmap.toString()
+                viewModelScope.launch {
+                    profileRepository.updateProfile(profile)
+                }
             }
         }
-
         fetchProfile()
     }
 }
