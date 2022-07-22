@@ -110,7 +110,7 @@ class ViewController: UIViewController {
         palpiteLabel.attributedText = jogoDaForca.palavraMascarada.espacado
         chutesAnterioresLabel.attributedText = formatarChutes()
         UIView.transition(with: bonecoImageView, duration: 0.3, options: .transitionCrossDissolve, animations:{
-            if self.jogoDaForca.estado == EstadoJogo.derrota{
+            if self.jogoDaForca.estado == .derrota{
                 self.bonecoImageView.image = UIImage(named: "bonecao_completo_e_mortinho")
             }else{
                 self.bonecoImageView.image = UIImage(named: "bonecao_fase_\(self.jogoDaForca.erros)")
@@ -130,9 +130,9 @@ extension ViewController: UITextFieldDelegate{
         if let texto = textField.text {
             jogoDaForca.tentar(letra: texto)
         }
-        if jogoDaForca.estado == EstadoJogo.vitoria{
+        if jogoDaForca.estado == .vitoria{
             alert(titulo: "Voce acertou, parabens!", descricao: nil)
-        }else if jogoDaForca.estado == EstadoJogo.derrota{
+        }else if jogoDaForca.estado == .derrota{
             alert(titulo: "Que pena, voce errou", descricao: "Pensa um pouco mais da próxima vez")
         }
         

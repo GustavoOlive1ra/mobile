@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2DC3A5FCD262DE7B85D5E22F /* Pods_ForcaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB10E9B4AAB6B089D30086CB /* Pods_ForcaTests.framework */; };
+		61045B412889BE6B00769F01 /* JogoDaForcaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61045B402889BE6B00769F01 /* JogoDaForcaTests.swift */; };
 		6193AFDB28886F260076445F /* String+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6193AFDA28886F260076445F /* String+AttributedText.swift */; };
 		6193AFDD2888741A0076445F /* String+Character+Comparavel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6193AFDC2888741A0076445F /* String+Character+Comparavel.swift */; };
 		6193AFDF288875730076445F /* Funcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6193AFDE288875730076445F /* Funcoes.swift */; };
@@ -45,6 +46,7 @@
 		0C1ABE42B6CD21F858CB7F74 /* Pods_Forca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Forca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2402C8EB2E79D52FACE3D3A4 /* Pods-Forca-ForcaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Forca-ForcaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Forca-ForcaUITests/Pods-Forca-ForcaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3694006C27CF149B0BA02392 /* Pods-Forca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Forca.release.xcconfig"; path = "Target Support Files/Pods-Forca/Pods-Forca.release.xcconfig"; sourceTree = "<group>"; };
+		61045B402889BE6B00769F01 /* JogoDaForcaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogoDaForcaTests.swift; sourceTree = "<group>"; };
 		6193AFDA28886F260076445F /* String+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AttributedText.swift"; sourceTree = "<group>"; };
 		6193AFDC2888741A0076445F /* String+Character+Comparavel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Character+Comparavel.swift"; sourceTree = "<group>"; };
 		6193AFDE288875730076445F /* Funcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funcoes.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				81DE28BD288715D1005FC5C9 /* ForcaTests.swift */,
+				61045B402889BE6B00769F01 /* JogoDaForcaTests.swift */,
 			);
 			path = ForcaTests;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81DE28BE288715D1005FC5C9 /* ForcaTests.swift in Sources */,
+				61045B412889BE6B00769F01 /* JogoDaForcaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

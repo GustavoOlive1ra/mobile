@@ -13,8 +13,14 @@ class JogoDaForca {
     
     private(set) var palavraMascarada: String
     private(set) var tentativasAnteriores: [String] = []
-    private(set) var erros: Int = 0
-    private(set) var estado: EstadoJogo = EstadoJogo.emAndamento
+    private(set) var erros: Int = 0 {
+        didSet{
+            if erros>5{
+                estado = .derrota
+            }
+        }
+    }
+    private(set) var estado: EstadoJogo = .emAndamento
     
     init(palavra: String, dica: String) {
         self.palavra = palavra.uppercased()
@@ -37,15 +43,12 @@ class JogoDaForca {
         
         guard palavra.contains(letraComparavel) else{
             erros += 1
-            if erros>5{
-                estado = EstadoJogo.derrota
-            }
             return
         }
         palavraMascarada = troca(letra: letraComparavel, na: palavraMascarada, original: palavra)
         
         if palavraMascarada.comparavel == palavra{
-            estado = EstadoJogo.vitoria
+            estado = .vitoria
         }
         
     }
