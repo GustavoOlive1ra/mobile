@@ -10,6 +10,9 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    var buttonsEscolhidosNaRodada : [UIButton] = []
+    var buttonsNaTela : [UIButton] = []
+    
     lazy var reiniciarButton: UIButton = {
         let button = UIButton()
         button.setTitle("Reiniciar", for: .normal)
@@ -38,6 +41,8 @@ class ViewController: UIViewController {
         stackView.distribution = .equalCentering
         return stackView
     }()
+    
+    private var jogoDaMemoria: JogoDaMemoria = .inicia()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,25 +73,55 @@ class ViewController: UIViewController {
         buttonsSecondStackView.addArrangedSubview(retornaButton())
         buttonsSecondStackView.addArrangedSubview(retornaButton())
         
+        definirImagem()
+    }
+    
+    func definirImagem(){
         for item in buttonsFirstStackView.arrangedSubviews {
             guard let btn = item as? UIButton else { return}
-            recebeButton(button: btn)
+            jogoDaMemoria.definirImagem(button: btn)
         }
         
         for item in buttonsSecondStackView.arrangedSubviews {
             guard let btn = item as? UIButton else { return}
-            recebeButton(button: btn)
+            jogoDaMemoria.definirImagem(button: btn)
         }
     }
     
     func retornaButton() -> UIButton{
         let button = UIButton()
         button.setImage(UIImage(named: "Card"), for: .normal)
+        button.addTarget(self, action: #selector(escolherImagem(button: )), for: .touchDown)
+        buttonsNaTela.append(button)
         return button
     }
     
-    func recebeButton(button: UIButton){
-        print(button)
+    @objc func escolherImagem(button: UIButton){
+        if(jogoDaMemoria.estado != .vitoria){
+            buttonsEscolhidosNaRodada.append(button)
+            button.setImage(UIImage(named: jogoDaMemoria.tentar(button: button)), for: .normal)
+            let resultadoRodada = jogoDaMemoria.testarAcerto()
+            switch(resultadoRodada){
+            case .tentativasInsuficientes:
+                break
+            case .errou:
+                resetarEscolhas()
+            case .acertou:
+                limparBufferButtons()
+            }
+        }
+
+    }
+    
+    func resetarEscolhas(){
+        for btn in buttonsEscolhidosNaRodada{
+            btn.setImage(UIImage(named: "Card"), for: .normal)
+        }
+        limparBufferButtons()
+    }
+
+    func limparBufferButtons(){
+        buttonsEscolhidosNaRodada = []
     }
     
     func buildConstraints() {
