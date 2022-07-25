@@ -17,6 +17,7 @@
 		6148FD952889A8E900C07CA5 /* JogoDaMemoriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6148FD942889A8E900C07CA5 /* JogoDaMemoriaTests.swift */; };
 		6148FD9F2889A8E900C07CA5 /* JogoDaMemoriaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6148FD9E2889A8E900C07CA5 /* JogoDaMemoriaUITests.swift */; };
 		6148FDA12889A8E900C07CA5 /* JogoDaMemoriaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6148FDA02889A8E900C07CA5 /* JogoDaMemoriaUITestsLaunchTests.swift */; };
+		6196DCCF288AFAE8005CFD04 /* JogoDaMemoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196DCCE288AFAE8005CFD04 /* JogoDaMemoria.swift */; };
 		7BC48CE8F9C5FAF25CD2B7DA /* Pods_JogoDaMemoriaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2243BC3E231BF871904D7828 /* Pods_JogoDaMemoriaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		6148FD9A2889A8E900C07CA5 /* JogoDaMemoriaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JogoDaMemoriaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6148FD9E2889A8E900C07CA5 /* JogoDaMemoriaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogoDaMemoriaUITests.swift; sourceTree = "<group>"; };
 		6148FDA02889A8E900C07CA5 /* JogoDaMemoriaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogoDaMemoriaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6196DCCE288AFAE8005CFD04 /* JogoDaMemoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogoDaMemoria.swift; sourceTree = "<group>"; };
 		84AF8BFE04B05FBF016B0193 /* Pods-JogoDaMemoria.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JogoDaMemoria.release.xcconfig"; path = "Target Support Files/Pods-JogoDaMemoria/Pods-JogoDaMemoria.release.xcconfig"; sourceTree = "<group>"; };
 		BFF5883220CEFEEAAAB3B1B7 /* Pods_JogoDaMemoria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JogoDaMemoria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED417BC2B6406E817E01F837 /* Pods-JogoDaMemoriaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JogoDaMemoriaTests.release.xcconfig"; path = "Target Support Files/Pods-JogoDaMemoriaTests/Pods-JogoDaMemoriaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				6148FD862889A8E900C07CA5 /* Assets.xcassets */,
 				6148FD882889A8E900C07CA5 /* LaunchScreen.storyboard */,
 				6148FD8B2889A8E900C07CA5 /* Info.plist */,
+				6196DCCE288AFAE8005CFD04 /* JogoDaMemoria.swift */,
 			);
 			path = JogoDaMemoria;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6196DCCF288AFAE8005CFD04 /* JogoDaMemoria.swift in Sources */,
 				6148FD822889A8E800C07CA5 /* ViewController.swift in Sources */,
 				6148FD7E2889A8E800C07CA5 /* AppDelegate.swift in Sources */,
 				6148FD802889A8E800C07CA5 /* SceneDelegate.swift in Sources */,
