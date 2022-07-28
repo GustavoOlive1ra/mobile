@@ -10,16 +10,14 @@ import UIKit
 
 class JogoDaMemoria{
     var cartas = [UIButton : String]()
-    var estado: EstadoJogo
-    var primeiraImagemEscolhida: String
-    var segundaImagemEscolhida: String
-    var estadoRodada: ResultadoRodada
+    var estado: EstadoJogo = .nenhumaTentativa
+    var primeiraImagemEscolhida: String = ""
+    var segundaImagemEscolhida: String = ""
+    var estadoRodada: ResultadoRodada = .tentativasInsuficientes
+    var acertos: Int = 0
+    var tentativas: Int = 0
     
     init(){
-        estado = .nenhumaTentativa
-        primeiraImagemEscolhida = ""
-        segundaImagemEscolhida = ""
-        estadoRodada = .tentativasInsuficientes
         cartas = [:]
     }
     
@@ -54,8 +52,14 @@ class JogoDaMemoria{
     
     func testarAcerto() -> ResultadoRodada{
         if(estado == .segundaTentativa){
+            tentativas += 1
             if(primeiraImagemEscolhida==segundaImagemEscolhida){
                 resetRodada()
+                acertos += 1
+                if(acertos==5){
+                    estado = .vitoria
+                    return .ganhou
+                }
                 return .acertou
             } else {
                 resetRodada()
@@ -91,6 +95,7 @@ enum ResultadoRodada{
     case tentativasInsuficientes
     case errou
     case acertou
+    case ganhou
 }
 
 let imagens = ["Card Anão", "Card Bruxa", "Card Cavaleiro", "Card Elfa", "Card Mago"]

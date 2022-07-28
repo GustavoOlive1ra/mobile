@@ -44,6 +44,11 @@ class ProductCategoriesViewController: UIViewController {
         buildConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     init(presenter: ProductCategoriesPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
