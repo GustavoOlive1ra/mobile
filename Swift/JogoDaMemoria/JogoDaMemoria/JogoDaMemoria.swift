@@ -54,7 +54,6 @@ class JogoDaMemoria{
         if(estado == .segundaTentativa){
             tentativas += 1
             if(primeiraImagemEscolhida==segundaImagemEscolhida){
-                resetRodada()
                 acertos += 1
                 if(acertos==5){
                     estado = .vitoria
@@ -62,7 +61,6 @@ class JogoDaMemoria{
                 }
                 return .acertou
             } else {
-                resetRodada()
                 return .errou
             }
         }else{

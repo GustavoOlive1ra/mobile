@@ -132,6 +132,7 @@ class ViewController: UIViewController {
     }
 
     func limparBufferButtons(){
+        jogoDaMemoria.resetRodada()
         buttonsEscolhidosNaRodada = []
     }
     
