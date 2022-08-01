@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "icone_reiniciar.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

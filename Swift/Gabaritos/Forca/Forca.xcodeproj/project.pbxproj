@@ -1,0 +1,787 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5866D8A7285241160060E109 /* UIViewController+EsconderTeclado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5866D8A6285241160060E109 /* UIViewController+EsconderTeclado.swift */; };
+		589EDD90288988050034B3E7 /* JogoDaForcaTestsXC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589EDD8F288988050034B3E7 /* JogoDaForcaTestsXC.swift */; };
+		58BBCF72287DF4ED00C4AB27 /* JogoDaForcaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BBCF71287DF4ED00C4AB27 /* JogoDaForcaTests.swift */; };
+		58D93423284F8BEB00E47F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93422284F8BEB00E47F5A /* AppDelegate.swift */; };
+		58D93425284F8BEB00E47F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93424284F8BEB00E47F5A /* SceneDelegate.swift */; };
+		58D93427284F8BEB00E47F5A /* ForcaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93426284F8BEB00E47F5A /* ForcaViewController.swift */; };
+		58D9342C284F8BEF00E47F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D9342B284F8BEF00E47F5A /* Assets.xcassets */; };
+		58D9342F284F8BEF00E47F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D9342D284F8BEF00E47F5A /* LaunchScreen.storyboard */; };
+		58D9343A284F8BEF00E47F5A /* ForcaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93439284F8BEF00E47F5A /* ForcaTests.swift */; };
+		58D93444284F8BEF00E47F5A /* ForcaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93443284F8BEF00E47F5A /* ForcaUITests.swift */; };
+		58D93446284F8BEF00E47F5A /* ForcaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93445284F8BEF00E47F5A /* ForcaUITestsLaunchTests.swift */; };
+		58D93453284FCB1700E47F5A /* JogoDaForca.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93452284FCB1700E47F5A /* JogoDaForca.swift */; };
+		58D93455284FCBB300E47F5A /* String+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93454284FCBB300E47F5A /* String+AttributedText.swift */; };
+		58D93457284FCC2200E47F5A /* String,Character+Comparavel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93456284FCC2200E47F5A /* String,Character+Comparavel.swift */; };
+		58D93459284FCD0600E47F5A /* Funcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93458284FCD0600E47F5A /* Funcoes.swift */; };
+		ABCF6AA58A3AE5598CB74F21 /* Pods_ForcaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 442470648AF263B260AA0559 /* Pods_ForcaTests.framework */; };
+		AC2792E1982D3AD27B96A059 /* Pods_Forca_ForcaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A88350F503E0E24D0B15065 /* Pods_Forca_ForcaUITests.framework */; };
+		BB4106DF80A26A03391275BF /* Pods_Forca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A00D2B449E4EABFEAB105E2 /* Pods_Forca.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		58D93436284F8BEF00E47F5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58D93417284F8BEB00E47F5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58D9341E284F8BEB00E47F5A;
+			remoteInfo = Forca;
+		};
+		58D93440284F8BEF00E47F5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58D93417284F8BEB00E47F5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58D9341E284F8BEB00E47F5A;
+			remoteInfo = Forca;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A00D2B449E4EABFEAB105E2 /* Pods_Forca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Forca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C8317B61BBF52682BDF4E40 /* Pods-Forca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Forca.release.xcconfig"; path = "Target Support Files/Pods-Forca/Pods-Forca.release.xcconfig"; sourceTree = "<group>"; };
+		0CEB59CDBE895A4A427E6A94 /* Pods-Forca-ForcaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Forca-ForcaUITests.release.xcconfig"; path = "Target Support Files/Pods-Forca-ForcaUITests/Pods-Forca-ForcaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		442470648AF263B260AA0559 /* Pods_ForcaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForcaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52925EBCCC9D4CB4FAA38BDC /* Pods-ForcaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForcaTests.release.xcconfig"; path = "Target Support Files/Pods-ForcaTests/Pods-ForcaTests.release.xcconfig"; sourceTree = "<group>"; };
+		5866D8A6285241160060E109 /* UIViewController+EsconderTeclado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EsconderTeclado.swift"; sourceTree = "<group>"; };
+		589EDD8F288988050034B3E7 /* JogoDaForcaTestsXC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogoDaForcaTestsXC.swift; sourceTree = "<group>"; };
+		58BBCF71287DF4ED00C4AB27 /* JogoDaForcaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogoDaForcaTests.swift; sourceTree = "<group>"; };
+		58D9341F284F8BEB00E47F5A /* Forca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Forca.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58D93422284F8BEB00E47F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		58D93424284F8BEB00E47F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		58D93426284F8BEB00E47F5A /* ForcaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcaViewController.swift; sourceTree = "<group>"; };
+		58D9342B284F8BEF00E47F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		58D9342E284F8BEF00E47F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		58D93430284F8BEF00E47F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58D93435284F8BEF00E47F5A /* ForcaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForcaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58D93439284F8BEF00E47F5A /* ForcaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcaTests.swift; sourceTree = "<group>"; };
+		58D9343F284F8BEF00E47F5A /* ForcaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForcaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58D93443284F8BEF00E47F5A /* ForcaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcaUITests.swift; sourceTree = "<group>"; };
+		58D93445284F8BEF00E47F5A /* ForcaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		58D93452284FCB1700E47F5A /* JogoDaForca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogoDaForca.swift; sourceTree = "<group>"; };
+		58D93454284FCBB300E47F5A /* String+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AttributedText.swift"; sourceTree = "<group>"; };
+		58D93456284FCC2200E47F5A /* String,Character+Comparavel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String,Character+Comparavel.swift"; sourceTree = "<group>"; };
+		58D93458284FCD0600E47F5A /* Funcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funcoes.swift; sourceTree = "<group>"; };
+		5A88350F503E0E24D0B15065 /* Pods_Forca_ForcaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Forca_ForcaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FFA00F59C76B227FD85CB69 /* Pods-Forca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Forca.debug.xcconfig"; path = "Target Support Files/Pods-Forca/Pods-Forca.debug.xcconfig"; sourceTree = "<group>"; };
+		A76D78D8C68124DEA4D654DB /* Pods-ForcaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForcaTests.debug.xcconfig"; path = "Target Support Files/Pods-ForcaTests/Pods-ForcaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BA778E666BD0368C02EF1832 /* Pods-Forca-ForcaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Forca-ForcaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Forca-ForcaUITests/Pods-Forca-ForcaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58D9341C284F8BEB00E47F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB4106DF80A26A03391275BF /* Pods_Forca.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58D93432284F8BEF00E47F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABCF6AA58A3AE5598CB74F21 /* Pods_ForcaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58D9343C284F8BEF00E47F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC2792E1982D3AD27B96A059 /* Pods_Forca_ForcaUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		297CDE198BE55AD9D9E7EEC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FFA00F59C76B227FD85CB69 /* Pods-Forca.debug.xcconfig */,
+				0C8317B61BBF52682BDF4E40 /* Pods-Forca.release.xcconfig */,
+				BA778E666BD0368C02EF1832 /* Pods-Forca-ForcaUITests.debug.xcconfig */,
+				0CEB59CDBE895A4A427E6A94 /* Pods-Forca-ForcaUITests.release.xcconfig */,
+				A76D78D8C68124DEA4D654DB /* Pods-ForcaTests.debug.xcconfig */,
+				52925EBCCC9D4CB4FAA38BDC /* Pods-ForcaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		58D93416284F8BEB00E47F5A = {
+			isa = PBXGroup;
+			children = (
+				58D93421284F8BEB00E47F5A /* Forca */,
+				58D93438284F8BEF00E47F5A /* ForcaTests */,
+				58D93442284F8BEF00E47F5A /* ForcaUITests */,
+				58D93420284F8BEB00E47F5A /* Products */,
+				297CDE198BE55AD9D9E7EEC6 /* Pods */,
+				C11B5695BB8507559A210D29 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		58D93420284F8BEB00E47F5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58D9341F284F8BEB00E47F5A /* Forca.app */,
+				58D93435284F8BEF00E47F5A /* ForcaTests.xctest */,
+				58D9343F284F8BEF00E47F5A /* ForcaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58D93421284F8BEB00E47F5A /* Forca */ = {
+			isa = PBXGroup;
+			children = (
+				58D93422284F8BEB00E47F5A /* AppDelegate.swift */,
+				58D93424284F8BEB00E47F5A /* SceneDelegate.swift */,
+				58D93426284F8BEB00E47F5A /* ForcaViewController.swift */,
+				58D9342B284F8BEF00E47F5A /* Assets.xcassets */,
+				58D9342D284F8BEF00E47F5A /* LaunchScreen.storyboard */,
+				58D93430284F8BEF00E47F5A /* Info.plist */,
+				58D93452284FCB1700E47F5A /* JogoDaForca.swift */,
+				58D93454284FCBB300E47F5A /* String+AttributedText.swift */,
+				58D93456284FCC2200E47F5A /* String,Character+Comparavel.swift */,
+				58D93458284FCD0600E47F5A /* Funcoes.swift */,
+				5866D8A6285241160060E109 /* UIViewController+EsconderTeclado.swift */,
+			);
+			path = Forca;
+			sourceTree = "<group>";
+		};
+		58D93438284F8BEF00E47F5A /* ForcaTests */ = {
+			isa = PBXGroup;
+			children = (
+				58D93439284F8BEF00E47F5A /* ForcaTests.swift */,
+				58BBCF71287DF4ED00C4AB27 /* JogoDaForcaTests.swift */,
+				589EDD8F288988050034B3E7 /* JogoDaForcaTestsXC.swift */,
+			);
+			path = ForcaTests;
+			sourceTree = "<group>";
+		};
+		58D93442284F8BEF00E47F5A /* ForcaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				58D93443284F8BEF00E47F5A /* ForcaUITests.swift */,
+				58D93445284F8BEF00E47F5A /* ForcaUITestsLaunchTests.swift */,
+			);
+			path = ForcaUITests;
+			sourceTree = "<group>";
+		};
+		C11B5695BB8507559A210D29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A00D2B449E4EABFEAB105E2 /* Pods_Forca.framework */,
+				5A88350F503E0E24D0B15065 /* Pods_Forca_ForcaUITests.framework */,
+				442470648AF263B260AA0559 /* Pods_ForcaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58D9341E284F8BEB00E47F5A /* Forca */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58D93449284F8BEF00E47F5A /* Build configuration list for PBXNativeTarget "Forca" */;
+			buildPhases = (
+				78EC3C9CA3C679E26744A5B2 /* [CP] Check Pods Manifest.lock */,
+				58D9341B284F8BEB00E47F5A /* Sources */,
+				58D9341C284F8BEB00E47F5A /* Frameworks */,
+				58D9341D284F8BEB00E47F5A /* Resources */,
+				38CADE9B16841F4F4B464786 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Forca;
+			productName = Forca;
+			productReference = 58D9341F284F8BEB00E47F5A /* Forca.app */;
+			productType = "com.apple.product-type.application";
+		};
+		58D93434284F8BEF00E47F5A /* ForcaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58D9344C284F8BEF00E47F5A /* Build configuration list for PBXNativeTarget "ForcaTests" */;
+			buildPhases = (
+				6F015D2EF23C0894FDE8CCD4 /* [CP] Check Pods Manifest.lock */,
+				58D93431284F8BEF00E47F5A /* Sources */,
+				58D93432284F8BEF00E47F5A /* Frameworks */,
+				58D93433284F8BEF00E47F5A /* Resources */,
+				DD47BF94CB14A6BB6F0A6878 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58D93437284F8BEF00E47F5A /* PBXTargetDependency */,
+			);
+			name = ForcaTests;
+			productName = ForcaTests;
+			productReference = 58D93435284F8BEF00E47F5A /* ForcaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		58D9343E284F8BEF00E47F5A /* ForcaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58D9344F284F8BEF00E47F5A /* Build configuration list for PBXNativeTarget "ForcaUITests" */;
+			buildPhases = (
+				BEC59FB3C2C9CDDCA9B8A0DA /* [CP] Check Pods Manifest.lock */,
+				58D9343B284F8BEF00E47F5A /* Sources */,
+				58D9343C284F8BEF00E47F5A /* Frameworks */,
+				58D9343D284F8BEF00E47F5A /* Resources */,
+				6FF3234B0FF75615DA206A83 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58D93441284F8BEF00E47F5A /* PBXTargetDependency */,
+			);
+			name = ForcaUITests;
+			productName = ForcaUITests;
+			productReference = 58D9343F284F8BEF00E47F5A /* ForcaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58D93417284F8BEB00E47F5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					58D9341E284F8BEB00E47F5A = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					58D93434284F8BEF00E47F5A = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 58D9341E284F8BEB00E47F5A;
+					};
+					58D9343E284F8BEF00E47F5A = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 58D9341E284F8BEB00E47F5A;
+					};
+				};
+			};
+			buildConfigurationList = 58D9341A284F8BEB00E47F5A /* Build configuration list for PBXProject "Forca" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 58D93416284F8BEB00E47F5A;
+			productRefGroup = 58D93420284F8BEB00E47F5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58D9341E284F8BEB00E47F5A /* Forca */,
+				58D93434284F8BEF00E47F5A /* ForcaTests */,
+				58D9343E284F8BEF00E47F5A /* ForcaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58D9341D284F8BEB00E47F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58D9342F284F8BEF00E47F5A /* LaunchScreen.storyboard in Resources */,
+				58D9342C284F8BEF00E47F5A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58D93433284F8BEF00E47F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58D9343D284F8BEF00E47F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38CADE9B16841F4F4B464786 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Forca/Pods-Forca-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Forca/Pods-Forca-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Forca/Pods-Forca-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F015D2EF23C0894FDE8CCD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ForcaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FF3234B0FF75615DA206A83 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Forca-ForcaUITests/Pods-Forca-ForcaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Forca-ForcaUITests/Pods-Forca-ForcaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Forca-ForcaUITests/Pods-Forca-ForcaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78EC3C9CA3C679E26744A5B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Forca-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEC59FB3C2C9CDDCA9B8A0DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Forca-ForcaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD47BF94CB14A6BB6F0A6878 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ForcaTests/Pods-ForcaTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ForcaTests/Pods-ForcaTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ForcaTests/Pods-ForcaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58D9341B284F8BEB00E47F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5866D8A7285241160060E109 /* UIViewController+EsconderTeclado.swift in Sources */,
+				58D93427284F8BEB00E47F5A /* ForcaViewController.swift in Sources */,
+				58D93423284F8BEB00E47F5A /* AppDelegate.swift in Sources */,
+				58D93455284FCBB300E47F5A /* String+AttributedText.swift in Sources */,
+				58D93425284F8BEB00E47F5A /* SceneDelegate.swift in Sources */,
+				58D93459284FCD0600E47F5A /* Funcoes.swift in Sources */,
+				58D93453284FCB1700E47F5A /* JogoDaForca.swift in Sources */,
+				58D93457284FCC2200E47F5A /* String,Character+Comparavel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58D93431284F8BEF00E47F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58D9343A284F8BEF00E47F5A /* ForcaTests.swift in Sources */,
+				589EDD90288988050034B3E7 /* JogoDaForcaTestsXC.swift in Sources */,
+				58BBCF72287DF4ED00C4AB27 /* JogoDaForcaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58D9343B284F8BEF00E47F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58D93446284F8BEF00E47F5A /* ForcaUITestsLaunchTests.swift in Sources */,
+				58D93444284F8BEF00E47F5A /* ForcaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		58D93437284F8BEF00E47F5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58D9341E284F8BEB00E47F5A /* Forca */;
+			targetProxy = 58D93436284F8BEF00E47F5A /* PBXContainerItemProxy */;
+		};
+		58D93441284F8BEF00E47F5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58D9341E284F8BEB00E47F5A /* Forca */;
+			targetProxy = 58D93440284F8BEF00E47F5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		58D9342D284F8BEF00E47F5A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58D9342E284F8BEF00E47F5A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		58D93447284F8BEF00E47F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		58D93448284F8BEF00E47F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58D9344A284F8BEF00E47F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FFA00F59C76B227FD85CB69 /* Pods-Forca.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Forca/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.treinamentoios.Forca;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58D9344B284F8BEF00E47F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C8317B61BBF52682BDF4E40 /* Pods-Forca.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Forca/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.treinamentoios.Forca;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		58D9344D284F8BEF00E47F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A76D78D8C68124DEA4D654DB /* Pods-ForcaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.treinamentoios.ForcaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Forca.app/Forca";
+			};
+			name = Debug;
+		};
+		58D9344E284F8BEF00E47F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52925EBCCC9D4CB4FAA38BDC /* Pods-ForcaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.treinamentoios.ForcaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Forca.app/Forca";
+			};
+			name = Release;
+		};
+		58D93450284F8BEF00E47F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA778E666BD0368C02EF1832 /* Pods-Forca-ForcaUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.treinamentoios.ForcaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Forca;
+			};
+			name = Debug;
+		};
+		58D93451284F8BEF00E47F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CEB59CDBE895A4A427E6A94 /* Pods-Forca-ForcaUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.treinamentoios.ForcaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Forca;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58D9341A284F8BEB00E47F5A /* Build configuration list for PBXProject "Forca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58D93447284F8BEF00E47F5A /* Debug */,
+				58D93448284F8BEF00E47F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58D93449284F8BEF00E47F5A /* Build configuration list for PBXNativeTarget "Forca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58D9344A284F8BEF00E47F5A /* Debug */,
+				58D9344B284F8BEF00E47F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58D9344C284F8BEF00E47F5A /* Build configuration list for PBXNativeTarget "ForcaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58D9344D284F8BEF00E47F5A /* Debug */,
+				58D9344E284F8BEF00E47F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58D9344F284F8BEF00E47F5A /* Build configuration list for PBXNativeTarget "ForcaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58D93450284F8BEF00E47F5A /* Debug */,
+				58D93451284F8BEF00E47F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58D93417284F8BEB00E47F5A /* Project object */;
+}

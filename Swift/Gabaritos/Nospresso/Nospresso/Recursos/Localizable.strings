@@ -1,0 +1,26 @@
+"error" = "erro";
+"remove" = "Remover";
+"products" = "Produtos";
+"favorites" = "Favoritos";
+
+"coffees.title" = "Cafés";
+"coffees.description" = "Cremosos, espumosos, hmm";
+
+"coffee.intensity" = "Intensidade: %d";
+"coffee.origin" = "Origem";
+"coffee.roasting" = "Torrefação";
+"coffee.aromaticProfile" = "Perfil Aromático";
+"coffee.price.description" = "10 cápsulas, ";
+"coffee.size.title" = "Formas de degustação";
+"coffee.addToCart.success.alert.title" = "Oba!";
+"coffee.addToCart.success.alert.message" = "Um sleeve de %@ foi adicionado à sua sacola.";
+
+"machines.title" = "Máquinas";
+"machines.description" = "Sem elas não rola café";
+
+"accessories.title" = "Acessórios";
+"accessories.description" = "Pra completar a balaca";
+
+"favorites.empty" = "Parece que você não tem nenhum favorito. Você se daria bem com filhos gêmeos.";
+
+"addToCart" = "Adicionar à sacola";
