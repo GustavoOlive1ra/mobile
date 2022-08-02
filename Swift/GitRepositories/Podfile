@@ -1,0 +1,22 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+
+target 'GitRepositories' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for GitRepositories
+  pod 'SnapKit', '~> 5.6.0'
+  pod 'R.swift'
+  pod 'Nuke'
+
+  target 'GitRepositoriesTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'GitRepositoriesUITests' do
+    # Pods for testing
+  end
+
+end
