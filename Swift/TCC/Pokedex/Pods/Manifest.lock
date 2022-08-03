@@ -1,0 +1,28 @@
+PODS:
+  - Nuke (8.4.1)
+  - R.swift (6.1.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - SnapKit (5.6.0)
+
+DEPENDENCIES:
+  - Nuke
+  - R.swift
+  - SnapKit (~> 5.6.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Nuke
+    - R.swift
+    - R.swift.Library
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Nuke: d780e3507a86b86c589ab3cc5cd302d5456f06fb
+  R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+
+PODFILE CHECKSUM: 20bf80f468c8133cd1f192f28aa842efd03f7ddc
+
+COCOAPODS: 1.11.3
