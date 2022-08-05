@@ -19,14 +19,13 @@ class API {
         success: @escaping SuccessResult<T>,
         failure: @escaping FailureResult
     ) {
-        guard var url = URL(string: baseUrl) else {
-            failure(.badUrl(string: baseUrl))
+        guard let url = URL(string: baseUrl) else {
+            failure(.badUrl(string: baseUrl+endpoint.url))
             return
         }
         
-        url.appendPathComponent(endpoint.url)
         
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: endpoint.buildFullUrl(with: url))
         request.httpMethod = method.rawValue
            
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -51,5 +50,4 @@ class API {
         }.resume()
         
     }
-    
 }

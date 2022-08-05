@@ -149,12 +149,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 32 images.
+  /// This `R.image` struct is generated, and contains static references to 31 images.
   struct image {
     /// Image `cave`.
     static let cave = Rswift.ImageResource(bundle: R.hostingBundle, name: "cave")
-    /// Image `equipe_rocket`.
-    static let equipe_rocket = Rswift.ImageResource(bundle: R.hostingBundle, name: "equipe_rocket")
     /// Image `forest`.
     static let forest = Rswift.ImageResource(bundle: R.hostingBundle, name: "forest")
     /// Image `grassland_2`.
@@ -171,8 +169,8 @@ struct R: Rswift.Validatable {
     static let ic_eletric_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_eletric_type")
     /// Image `ic_fairy_type`.
     static let ic_fairy_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_fairy_type")
-    /// Image `ic_fighting_type`.
-    static let ic_fighting_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_fighting_type")
+    /// Image `ic_fight_type`.
+    static let ic_fight_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_fight_type")
     /// Image `ic_fire_type`.
     static let ic_fire_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_fire_type")
     /// Image `ic_flying_type`.
@@ -189,10 +187,6 @@ struct R: Rswift.Validatable {
     static let ic_normal_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_normal_type")
     /// Image `ic_poison_type`.
     static let ic_poison_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_poison_type")
-    /// Image `ic_pokebola`.
-    static let ic_pokebola = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_pokebola")
-    /// Image `ic_pokedex`.
-    static let ic_pokedex = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_pokedex")
     /// Image `ic_psychic_type`.
     static let ic_psychic_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_psychic_type")
     /// Image `ic_rock_type`.
@@ -203,6 +197,10 @@ struct R: Rswift.Validatable {
     static let ic_water_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_water_type")
     /// Image `mountain`.
     static let mountain = Rswift.ImageResource(bundle: R.hostingBundle, name: "mountain")
+    /// Image `pokebola`.
+    static let pokebola = Rswift.ImageResource(bundle: R.hostingBundle, name: "pokebola")
+    /// Image `pokedex`.
+    static let pokedex = Rswift.ImageResource(bundle: R.hostingBundle, name: "pokedex")
     /// Image `pokemon_background`.
     static let pokemon_background = Rswift.ImageResource(bundle: R.hostingBundle, name: "pokemon_background")
     /// Image `pokemon_logo`.
@@ -220,13 +218,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "cave", bundle: ..., traitCollection: ...)`
     static func cave(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.cave, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "equipe_rocket", bundle: ..., traitCollection: ...)`
-    static func equipe_rocket(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.equipe_rocket, compatibleWith: traitCollection)
     }
     #endif
 
@@ -287,9 +278,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ic_fighting_type", bundle: ..., traitCollection: ...)`
-    static func ic_fighting_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.ic_fighting_type, compatibleWith: traitCollection)
+    /// `UIImage(named: "ic_fight_type", bundle: ..., traitCollection: ...)`
+    static func ic_fight_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_fight_type, compatibleWith: traitCollection)
     }
     #endif
 
@@ -350,20 +341,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ic_pokebola", bundle: ..., traitCollection: ...)`
-    static func ic_pokebola(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.ic_pokebola, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ic_pokedex", bundle: ..., traitCollection: ...)`
-    static func ic_pokedex(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.ic_pokedex, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ic_psychic_type", bundle: ..., traitCollection: ...)`
     static func ic_psychic_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_psychic_type, compatibleWith: traitCollection)
@@ -395,6 +372,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "mountain", bundle: ..., traitCollection: ...)`
     static func mountain(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.mountain, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pokebola", bundle: ..., traitCollection: ...)`
+    static func pokebola(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pokebola, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pokedex", bundle: ..., traitCollection: ...)`
+    static func pokedex(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pokedex, compatibleWith: traitCollection)
     }
     #endif
 

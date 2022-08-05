@@ -11,7 +11,10 @@ internal class PokemonCoordinator {
 }
 
 extension PokemonCoordinator: PokemonCoordinatorProtocol {
-    
+    func openPokemonDetail(using pokemon: PokemonBase) {
+        let viewController = PokemonDetailCoordinator.createModule(navigationController: navigationController, pokemonName: pokemon.name)
+        navigationController?.pushViewController(viewController, animated: true)
+    }    
 }
 
 extension PokemonCoordinator {

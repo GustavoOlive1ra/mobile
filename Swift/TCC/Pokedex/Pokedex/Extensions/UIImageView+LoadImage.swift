@@ -23,7 +23,7 @@ extension UIImageView {
         )
     }
     
-    func loadImage(whithIdPokemon idPokemon: Int) {
+    func loadImage(withIdPokemon idPokemon: String) {
         let urlString: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(idPokemon).png"
         guard let url = URL(string: urlString) else {
             return

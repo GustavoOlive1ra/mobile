@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "grassland.jpg",
+      "filename" : "grassland.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "grassland@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "grassland@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
