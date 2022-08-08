@@ -7,6 +7,7 @@ internal class PokemonDetailPresenter {
     internal var coordinator: PokemonDetailCoordinatorProtocol
     
     private let pokemonName: String
+    private var pokemonDetail: PokemonDetail?
     
     internal init(repository: PokemonDetailRepositoryInputProtocol,
                   coordinator: PokemonDetailCoordinatorProtocol, pokemonName: String) {
@@ -28,7 +29,7 @@ extension PokemonDetailPresenter: PokemonDetailPresenterProtocol {
 // MARK: - Repository Output
 extension PokemonDetailPresenter: PokemonDetailRepositoryOutputProtocol {
     func getPokemonsSpeciesSuccess(with data: PokemonSpecies) {
-        print(data)
+
     }
     
     func getPokemonsSpeciesFailure(with error: APIError) {
@@ -36,7 +37,11 @@ extension PokemonDetailPresenter: PokemonDetailRepositoryOutputProtocol {
     }
     
     func getPokemonsDetailSuccess(with data: PokemonDetail) {
-        print(data)
+        pokemonDetail = data
+        
+        DispatchQueue.main.async {
+            self.view?.setup(with: data)
+        }
     }
     
     func getPokemonsDetailFailure(with error: APIError) {

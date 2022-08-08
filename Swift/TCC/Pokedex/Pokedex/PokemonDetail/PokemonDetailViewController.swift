@@ -3,6 +3,7 @@ import UIKit
 internal class PokemonDetailViewController: UIViewController {
 
     private let presenter: PokemonDetailPresenterProtocol
+    
 
     internal init(presenter: PokemonDetailPresenterProtocol) {
         self.presenter = presenter
@@ -27,19 +28,36 @@ internal class PokemonDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.removeBackButtonLabel()
+        navigationController?.navigationBar.tintColor = .label
+        
+        let barAppearance = UIBarAppearance()
+        barAppearance.backgroundColor = Colors.cardBlue()
+
+        let appearance = UINavigationBarAppearance(barAppearance: barAppearance)
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
+
 
 }
 
 // MARK: - PokemonDetailViewControllerProtocol
 extension PokemonDetailViewController: PokemonDetailViewProtocol {
+    func setup(with: PokemonSpecies) {
+        
+    }
+    
+    func setup(with pokemonDetail: PokemonDetail) {
+        title = pokemonDetail.name.uppercased()
+    }
 
 }
 
 extension PokemonDetailViewController {
     func configViews() {
         view.backgroundColor = .white
+        removeBackButtonLabel()
     }
     
     func buildViews() {

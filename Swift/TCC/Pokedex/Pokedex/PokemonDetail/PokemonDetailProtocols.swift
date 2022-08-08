@@ -7,7 +7,8 @@ internal protocol PokemonDetailCoordinatorProtocol {
 
 // Presenter -> ViewController
 internal protocol PokemonDetailViewProtocol: AnyObject {
-
+    func setup(with: PokemonDetail)
+    func setup(with: PokemonSpecies)
 }
 
 // ViewController -> Presenter

@@ -50,9 +50,7 @@ internal class PokemonViewController: UIViewController, LoadingIndicatorViewType
         tabBarController?.tabBar.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+        reload()
     }
 
 }
@@ -63,6 +61,7 @@ extension PokemonViewController {
         collectionView.delegate = self
         collectionView.dataSource = presenter
         collectionView.register(CardPokemonCell.self, forCellWithReuseIdentifier: CardPokemonCell.reuseIdentifier.identifier)
+        removeBackButtonLabel()
     }
     
     func buildViews() {

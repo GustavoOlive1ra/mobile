@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Rswift
+import Nuke
 
 class CardPokemonCell: UICollectionViewCell {
     
@@ -42,11 +43,11 @@ class CardPokemonCell: UICollectionViewCell {
         if isUnloacked {
             nameLabel.text = pokemonBase.name.uppercased()
             nameLabel.textColor = .black
+            contentView.backgroundColor = .white
         } else {
             nameLabel.text = Strings.unloackedPokemonName()
             nameLabel.textColor = .white
             contentView.backgroundColor = Colors.cardBlue()
-            cardImage.backgroundColor = .black
         }
     }
     

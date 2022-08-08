@@ -35,4 +35,30 @@ extension UIImageView {
             into: self
         )
     }
+    
+    
+    func nalaFilter(size: CGSize) -> UIImage? {
+        let brownColor = UIColor (red: 0.0, green: 0.0, blue: 0.0, alpha: 1)
+      let brownRect = CGRect (origin: .zero, size: size)
+
+      //Colored image
+      UIGraphicsBeginImageContextWithOptions(brownRect.size, true, 0.0)
+      brownColor.setFill()
+      UIRectFill(brownRect)
+      let brownColoredImage = UIGraphicsGetImageFromCurrentImageContext()
+      let brownContext = UIGraphicsGetCurrentContext()
+      brownContext!.setFillColor(UIColor.white.cgColor)
+      brownContext!.fill(brownRect)
+      self.draw(brownRect)
+      brownColoredImage?.draw(in: brownRect, blendMode: .colorDodge, alpha: 1)
+      let outBrown0Image = UIGraphicsGetImageFromCurrentImageContext()
+
+      //Multiplied image
+      self.draw(brownRect)
+      outBrown0Image?.draw(in: brownRect, blendMode: .multiply, alpha: 1)
+      let outBrownImage = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+
+        return outBrownImage
+    }
 }
