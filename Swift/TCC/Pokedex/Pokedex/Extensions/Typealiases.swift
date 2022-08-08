@@ -10,3 +10,4 @@ import Foundation
 
 typealias Colors = R.color
 typealias Images = R.image
+typealias Strings = R.string.localizable

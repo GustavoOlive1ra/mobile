@@ -49,6 +49,10 @@ internal class PokemonViewController: UIViewController, LoadingIndicatorViewType
         super.viewWillAppear(animated)
         tabBarController?.tabBar.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 
 }

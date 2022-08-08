@@ -37,9 +37,17 @@ class CardPokemonCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with pokemonBase: PokemonBase) {
-        nameLabel.text = pokemonBase.name.uppercased()
+    func setup(with pokemonBase: PokemonBase, isUnloacked: Bool) {
         cardImage.loadImage(withIdPokemon: pokemonBase.url.lastURLParameter())
+        if isUnloacked {
+            nameLabel.text = pokemonBase.name.uppercased()
+            nameLabel.textColor = .black
+        } else {
+            nameLabel.text = Strings.unloackedPokemonName()
+            nameLabel.textColor = .white
+            contentView.backgroundColor = Colors.cardBlue()
+            cardImage.backgroundColor = .black
+        }
     }
     
 }

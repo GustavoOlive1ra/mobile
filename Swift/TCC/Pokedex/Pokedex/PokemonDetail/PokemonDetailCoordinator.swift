@@ -17,7 +17,7 @@ extension PokemonDetailCoordinator: PokemonDetailCoordinatorProtocol {
 extension PokemonDetailCoordinator {
     
     internal class func createModule(navigationController: UINavigationController?, pokemonName: String) -> UIViewController {
-        print(pokemonName)
+        
         
         let repository = PokemonDetailRepository()
 
@@ -25,7 +25,8 @@ extension PokemonDetailCoordinator {
         
         let presenter = PokemonDetailPresenter(
             repository: repository,
-            coordinator: coordinator)
+            coordinator: coordinator,
+            pokemonName: pokemonName)
         
         repository.output = presenter
 
