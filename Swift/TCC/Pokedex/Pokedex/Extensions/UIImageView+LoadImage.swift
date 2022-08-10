@@ -37,28 +37,40 @@ extension UIImageView {
     }
     
     
-    func nalaFilter(size: CGSize) -> UIImage? {
-        let brownColor = UIColor (red: 0.0, green: 0.0, blue: 0.0, alpha: 1)
-      let brownRect = CGRect (origin: .zero, size: size)
+    func loadImageWithFilter(withIdPokemon idPokemon: String, desiredColor: UIColor) {
+            let urlString: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(idPokemon).png"
+            guard let url = URL(string: urlString) else {
+                return
+            }
 
-      //Colored image
-      UIGraphicsBeginImageContextWithOptions(brownRect.size, true, 0.0)
-      brownColor.setFill()
-      UIRectFill(brownRect)
-      let brownColoredImage = UIGraphicsGetImageFromCurrentImageContext()
-      let brownContext = UIGraphicsGetCurrentContext()
-      brownContext!.setFillColor(UIColor.white.cgColor)
-      brownContext!.fill(brownRect)
-      self.draw(brownRect)
-      brownColoredImage?.draw(in: brownRect, blendMode: .colorDodge, alpha: 1)
-      let outBrown0Image = UIGraphicsGetImageFromCurrentImageContext()
+            ImagePipeline.shared.loadImage(with: url, queue: nil, progress: nil) { result in
+                switch result {
+                case .failure:
+                    self.image = ImageLoadingOptions.shared.failureImage
+                    self.contentMode = .scaleAspectFit
+                case let .success(imageResponse):
+                    
+                    let imageSize: CGSize = imageResponse.image.size
+                    let imageScale: CGFloat = imageResponse.image.scale
+                    let contextBounds: CGRect = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
 
-      //Multiplied image
-      self.draw(brownRect)
-      outBrown0Image?.draw(in: brownRect, blendMode: .multiply, alpha: 1)
-      let outBrownImage = UIGraphicsGetImageFromCurrentImageContext()
-      UIGraphicsEndImageContext()
+                    UIGraphicsBeginImageContextWithOptions(imageSize, false, imageScale)
+                        UIColor.black.setFill()
+                        UIRectFill(contextBounds)
+                        imageResponse.image.draw(at: .zero)
+                        let imageOverBlack: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+                        desiredColor.setFill()
+                        UIRectFill(contextBounds)
 
-        return outBrownImage
+                        imageOverBlack!.draw(at: .zero, blendMode: .multiply, alpha: 1)
+                        imageResponse.image.draw(at: .zero, blendMode: .destinationIn, alpha: 1)
+
+                        let finalImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
+
+                    self.image = finalImage
+                    self.contentMode = .scaleAspectFill
+                }
+            }
     }
 }

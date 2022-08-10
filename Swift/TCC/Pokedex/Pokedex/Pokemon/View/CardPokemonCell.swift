@@ -39,15 +39,17 @@ class CardPokemonCell: UICollectionViewCell {
     }
     
     func setup(with pokemonBase: PokemonBase, isUnloacked: Bool) {
-        cardImage.loadImage(withIdPokemon: pokemonBase.url.lastURLParameter())
+        
         if isUnloacked {
             nameLabel.text = pokemonBase.name.uppercased()
             nameLabel.textColor = .black
             contentView.backgroundColor = .white
+            cardImage.loadImage(withIdPokemon: pokemonBase.url.lastURLParameter())
         } else {
             nameLabel.text = Strings.unloackedPokemonName()
             nameLabel.textColor = .white
             contentView.backgroundColor = Colors.cardBlue()
+            cardImage.loadImageWithFilter(withIdPokemon: pokemonBase.url.lastURLParameter(), desiredColor: .black)
         }
     }
     

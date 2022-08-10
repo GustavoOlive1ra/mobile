@@ -14,6 +14,9 @@ internal protocol PokemonDetailViewProtocol: AnyObject {
 // ViewController -> Presenter
 internal protocol PokemonDetailPresenterProtocol {
     func viewDidLoad()
+    func getSizes(with pokemon: PokemonDetail) -> [String]
+    func getAbilities(with pokemon: PokemonDetail) -> [String]
+    func getStatus(with pokemon: PokemonDetail) -> [String]
 }
 
 // Presenter -> Repository
