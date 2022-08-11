@@ -2,13 +2,14 @@ import Foundation
 
 // Presenter -> Coordinator
 internal protocol PokemonDetailCoordinatorProtocol {
-
+    func openBattleChoiceOpponent()
 }
 
 // Presenter -> ViewController
 internal protocol PokemonDetailViewProtocol: AnyObject {
     func setup(with: PokemonDetail)
     func setup(with: PokemonSpecies)
+    func showAlert(title: String, message: String)
 }
 
 // ViewController -> Presenter
@@ -17,6 +18,10 @@ internal protocol PokemonDetailPresenterProtocol {
     func getSizes(with pokemon: PokemonDetail) -> [String]
     func getAbilities(with pokemon: PokemonDetail) -> [String]
     func getStatus(with pokemon: PokemonDetail) -> [String]
+    func getTextEntry(with pokemon: PokemonSpecies) -> String
+    func toggleFavorite()
+    func isFavorite() -> Bool
+    func openBattleChoice()
 }
 
 // Presenter -> Repository

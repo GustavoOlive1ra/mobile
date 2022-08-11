@@ -26,6 +26,12 @@ class CardPokemonCell: UICollectionViewCell {
         return image
     }()
     
+    lazy var favoriteImage: UIImageView = {
+        let image = UIImageView()
+        image.tintColor = Colors.star()
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -38,8 +44,8 @@ class CardPokemonCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with pokemonBase: PokemonBase, isUnloacked: Bool) {
-        
+    func setup(with pokemonBase: PokemonBase, isUnloacked: Bool, isFavorite: Bool) {
+        setupFavorite(isFavorite: isFavorite)
         if isUnloacked {
             nameLabel.text = pokemonBase.name.uppercased()
             nameLabel.textColor = .black
@@ -50,6 +56,14 @@ class CardPokemonCell: UICollectionViewCell {
             nameLabel.textColor = .white
             contentView.backgroundColor = Colors.cardBlue()
             cardImage.loadImageWithFilter(withIdPokemon: pokemonBase.url.lastURLParameter(), desiredColor: .black)
+        }
+    }
+    
+    func setupFavorite(isFavorite: Bool){
+        if isFavorite {
+            favoriteImage.image = .starFill
+        } else {
+            favoriteImage.image = nil
         }
     }
     
@@ -65,6 +79,7 @@ extension CardPokemonCell {
     func buildViews() {
         contentView.addSubview(nameLabel)
         contentView.addSubview(cardImage)
+        contentView.addSubview(favoriteImage)
     }
     
     func buildConstraints() {
@@ -78,6 +93,11 @@ extension CardPokemonCell {
             make.top.equalTo(cardImage.snp.bottom).offset(10)
             make.bottom.equalToSuperview().inset(10)
         }
+        favoriteImage.snp.makeConstraints { make in
+            make.trailing.bottom.equalTo(cardImage)
+            make.size.equalTo(30)
+        }
+    
     }
     
 }

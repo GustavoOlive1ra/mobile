@@ -43,6 +43,7 @@ class StatsItemView: UIView {
     lazy var showContentImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "chevron.backward")
+        image.tintColor = .black
         image.transform = image.transform.rotated(by: .pi)
         return image
     }()
@@ -56,11 +57,25 @@ class StatsItemView: UIView {
     }
     
     @objc func toggleVisibility(){
+        var hide: Bool = true
         for view in subtitlesStackView.arrangedSubviews {
             guard let label = view as? UILabel else {
                 return
             }
-            label.isHidden = !label.isHidden
+            hide = label.isHidden
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+                label.isHidden = !hide
+            }, completion: nil)
+        }
+        if(hide){
+            UIView.animate(withDuration:0.2, animations: {
+                self.showContentImage.transform = CGAffineTransform(rotationAngle: -.pi/2)
+            })
+        }else{
+            UIView.animate(withDuration:0.2, animations: {
+                self.showContentImage.transform = CGAffineTransform(rotationAngle: .pi)
+            })
         }
     }
     

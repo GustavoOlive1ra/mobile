@@ -20,6 +20,27 @@ internal class PokemonDetailPresenter {
 
 // MARK: - Presenter Protocol
 extension PokemonDetailPresenter: PokemonDetailPresenterProtocol {
+    func openBattleChoice() {
+        coordinator.openBattleChoiceOpponent()
+    }
+    
+    func toggleFavorite() {
+        Favorites.shared.toggle(name: pokemonName)
+    }
+    
+    func isFavorite() -> Bool {
+        return Favorites.shared.isAFavorite(name: pokemonName)
+    }
+    
+    
+    func getTextEntry(with pokemon: PokemonSpecies) -> String {
+        guard let textEntry = pokemon.textEntry.first(where: { flavorText in
+            flavorText.language.name == "en"
+        })?.text.components(separatedBy: .newlines).joined() else { return ""}
+        
+        return textEntry
+    }
+    
     func viewDidLoad() {
         repository.getPokemonsDetail(pokemonName: pokemonName)
         repository.getPokemonsSpecies(pokemonName: pokemonName)
@@ -53,7 +74,9 @@ extension PokemonDetailPresenter: PokemonDetailRepositoryOutputProtocol {
     }
     
     func getPokemonsSpeciesFailure(with error: APIError) {
-    
+        DispatchQueue.main.async {
+            self.view?.showAlert(title: "Erro", message: error.description)
+        }
     }
     
     func getPokemonsDetailSuccess(with data: PokemonDetail) {
@@ -65,7 +88,9 @@ extension PokemonDetailPresenter: PokemonDetailRepositoryOutputProtocol {
     }
     
     func getPokemonsDetailFailure(with error: APIError) {
-        
+        DispatchQueue.main.async {
+            self.view?.showAlert(title: "Erro", message: error.description)
+        }
     }
     
     

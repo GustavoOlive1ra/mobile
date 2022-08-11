@@ -11,7 +11,10 @@ internal class PokemonDetailCoordinator {
 }
 
 extension PokemonDetailCoordinator: PokemonDetailCoordinatorProtocol {
-    
+    func openBattleChoiceOpponent() {
+        let viewController = BattleChoiceOpponentCoordinator.createModule(navigationController: navigationController)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension PokemonDetailCoordinator {
@@ -26,7 +29,7 @@ extension PokemonDetailCoordinator {
         let presenter = PokemonDetailPresenter(
             repository: repository,
             coordinator: coordinator,
-            pokemonName: pokemonName)
+            pokemonName: pokemonName.lowercased())
         
         repository.output = presenter
 

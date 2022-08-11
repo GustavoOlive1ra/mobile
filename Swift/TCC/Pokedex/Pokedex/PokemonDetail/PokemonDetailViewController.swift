@@ -4,6 +4,17 @@ internal class PokemonDetailViewController: UIViewController {
     
     private let presenter: PokemonDetailPresenterProtocol
     
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.showsVerticalScrollIndicator = false
+        return view
+    }()
+    
+    lazy var contentView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     lazy var habitatImage: UIImageView = {
         let image = UIImageView()
         return image
@@ -19,6 +30,40 @@ internal class PokemonDetailViewController: UIViewController {
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 20.0)
         return label
+    }()
+    
+    lazy var typeStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        return stackView
+    }()
+    
+    lazy var actionStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        return stackView
+    }()
+    
+    lazy var favoriteButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = Colors.star()
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleFavorite)))
+        button.snp.makeConstraints { make in
+            make.size.equalTo(35)
+        }
+        return button
+    }()
+    
+    lazy var battleButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(Images.ic_battle(), for: .normal)
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(battle)))
+        button.snp.makeConstraints { make in
+            make.size.equalTo(35)
+        }
+        return button
     }()
     
     lazy var statsStackView: UIStackView = {
@@ -40,6 +85,13 @@ internal class PokemonDetailViewController: UIViewController {
     lazy var statusStatItem: StatsItemView = {
         let statsItem = StatsItemView(title: "Status")
         return statsItem
+    }()
+    
+    lazy var textEntryLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 16)
+        return label
     }()
 
     internal init(presenter: PokemonDetailPresenterProtocol) {
@@ -84,18 +136,60 @@ internal class PokemonDetailViewController: UIViewController {
 extension PokemonDetailViewController: PokemonDetailViewProtocol {
     func setup(with pokemonSpecies: PokemonSpecies) {
         habitatImage.image = UIImage(named: pokemonSpecies.habitat.name.imageName)
+        textEntryLabel.text = "Text entry: \(presenter.getTextEntry(with: pokemonSpecies))"
     }
     
     func setup(with pokemonDetail: PokemonDetail) {
         title = pokemonDetail.name.uppercased()
         nameLabel.text = pokemonDetail.name.uppercased()
         pokemonImage.loadImage(from: pokemonDetail.sprite.image)
+        fillTypeStackView(with: pokemonDetail.type)
+        
         sizeStatItem.setup(subititles: presenter.getSizes(with: pokemonDetail))
         abilitiesStatItem.setup(subititles: presenter.getAbilities(with: pokemonDetail))
         statusStatItem.setup(subititles: presenter.getStatus(with: pokemonDetail))
+        
+        setFavoriteImage()
     }
 
 }
+
+extension PokemonDetailViewController {
+    
+    @objc func battle(){
+        presenter.openBattleChoice()
+    }
+    
+    @objc func toggleFavorite(){
+        presenter.toggleFavorite()
+        setFavoriteImage()
+    }
+    
+    func setFavoriteImage() {
+        if presenter.isFavorite() {
+            favoriteButton.setBackgroundImage(.starFill, for: .normal)
+        } else {
+            favoriteButton.setBackgroundImage(.star, for: .normal)
+        }
+    }
+    
+    func fillTypeStackView(with types: [PokemonType]) {
+        for type in types {
+            let getImageView = getTypeImageView(with: type.type.name.imageName)
+            typeStackView.addArrangedSubview(getImageView)
+        }
+    }
+    
+    func getTypeImageView(with type: String) -> UIImageView {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: type)
+        imageView.snp.makeConstraints { make in
+            make.size.equalTo(35)
+        }
+        return imageView
+    }
+}
+
 
 extension PokemonDetailViewController {
     
@@ -105,19 +199,38 @@ extension PokemonDetailViewController {
     }
     
     func buildViews() {
-        view.addSubview(habitatImage)
-        view.addSubview(nameLabel)
-        view.addSubview(pokemonImage)
-        view.addSubview(statsStackView)
+        view.addSubview(scrollView)
+        
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(habitatImage)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(pokemonImage)
+        contentView.addSubview(typeStackView)
+        contentView.addSubview(actionStackView)
+        contentView.addSubview(statsStackView)
+        contentView.addSubview(textEntryLabel)
         
         statsStackView.addArrangedSubview(sizeStatItem)
         statsStackView.addArrangedSubview(statusStatItem)
         statsStackView.addArrangedSubview(abilitiesStatItem)
+        
+        actionStackView.addArrangedSubview(favoriteButton)
+        actionStackView.addArrangedSubview(battleButton)
     }
     
     func buildConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        
         habitatImage.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(200)
         }
         nameLabel.snp.makeConstraints { make in
@@ -133,7 +246,24 @@ extension PokemonDetailViewController {
         
         statsStackView.snp.makeConstraints { make in
             make.top.equalTo(habitatImage.snp.bottom)
-            make.trailing.leading.equalTo(view.safeAreaLayoutGuide)
+            make.trailing.leading.equalToSuperview()
+        }
+        
+        textEntryLabel.snp.makeConstraints { make in
+            make.top.equalTo(statsStackView.snp.bottom).offset(15)
+            make.trailing.equalToSuperview().inset(15)
+            make.leading.equalToSuperview().offset(15)
+            make.bottom.equalToSuperview()
+        }
+        
+        typeStackView.snp.makeConstraints { make in
+            make.top.equalTo(habitatImage).offset(20)
+            make.leading.equalTo(habitatImage).offset(20)
+        }
+        
+        actionStackView.snp.makeConstraints { make in
+            make.top.equalTo(typeStackView)
+            make.trailing.equalTo(habitatImage).inset(20)
         }
     }
 }

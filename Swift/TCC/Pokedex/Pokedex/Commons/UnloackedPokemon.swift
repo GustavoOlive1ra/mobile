@@ -25,7 +25,11 @@ class UnloakedPokemon {
         defer {
             updateDatabase()
         }
-        items.append(Unloacked(name: pokemonName))
+        if !items.contains(where: { item in
+            item.name == pokemonName
+        }) {
+            items.append(Unloacked(name: pokemonName))
+        }
     }
     
     func isUnloacked(pokemonName: String) -> Bool {

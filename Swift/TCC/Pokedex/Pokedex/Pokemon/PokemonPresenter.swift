@@ -58,8 +58,9 @@ extension PokemonPresenter: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardPokemonCell.reuseIdentifier, for: indexPath)!
         
         let isUnlocked = UnloakedPokemon.shared.isUnloacked(pokemonName: pokemonBase[indexPath.item].name)
+        let isFavorite = Favorites.shared.isAFavorite(name: pokemonBase[indexPath.item].name)
         
-        cell.setup(with: pokemonBase[indexPath.item], isUnloacked: isUnlocked)
+        cell.setup(with: pokemonBase[indexPath.item], isUnloacked: isUnlocked, isFavorite: isFavorite)
         
         return cell
     }

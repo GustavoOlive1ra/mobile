@@ -105,12 +105,14 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 2 colors.
+  /// This `R.color` struct is generated, and contains static references to 3 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
     /// Color `Card-blue`.
     static let cardBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "Card-blue")
+    /// Color `Star`.
+    static let star = Rswift.ColorResource(bundle: R.hostingBundle, name: "Star")
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
@@ -130,6 +132,15 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Star", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func star(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.star, compatibleWith: traitCollection)
+    }
+    #endif
+
     #if os(watchOS)
     /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
@@ -143,6 +154,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func cardBlue(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.cardBlue.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Star", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func star(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.star.name)
     }
     #endif
 
@@ -165,12 +184,12 @@ struct R: Rswift.Validatable {
     static let ic_bug_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_bug_type")
     /// Image `ic_dragon_type`.
     static let ic_dragon_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_dragon_type")
-    /// Image `ic_eletric_type`.
-    static let ic_eletric_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_eletric_type")
+    /// Image `ic_electric_type`.
+    static let ic_electric_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_electric_type")
     /// Image `ic_fairy_type`.
     static let ic_fairy_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_fairy_type")
-    /// Image `ic_fight_type`.
-    static let ic_fight_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_fight_type")
+    /// Image `ic_fighting_type`.
+    static let ic_fighting_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_fighting_type")
     /// Image `ic_fire_type`.
     static let ic_fire_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_fire_type")
     /// Image `ic_flying_type`.
@@ -264,9 +283,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ic_eletric_type", bundle: ..., traitCollection: ...)`
-    static func ic_eletric_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.ic_eletric_type, compatibleWith: traitCollection)
+    /// `UIImage(named: "ic_electric_type", bundle: ..., traitCollection: ...)`
+    static func ic_electric_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_electric_type, compatibleWith: traitCollection)
     }
     #endif
 
@@ -278,9 +297,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ic_fight_type", bundle: ..., traitCollection: ...)`
-    static func ic_fight_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.ic_fight_type, compatibleWith: traitCollection)
+    /// `UIImage(named: "ic_fighting_type", bundle: ..., traitCollection: ...)`
+    static func ic_fighting_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_fighting_type, compatibleWith: traitCollection)
     }
     #endif
 
