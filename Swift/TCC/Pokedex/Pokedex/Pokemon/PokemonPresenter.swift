@@ -21,7 +21,7 @@ extension PokemonPresenter: PokemonPresenterProtocol {
     
     func touchedCollectionView(index: Int) {
         coordinator.openPokemonDetail(using: pokemonBase[index])
-        UnloakedPokemon.shared.add(pokemonName: pokemonBase[index].name)
+        UnloackedPokemon.shared.add(pokemonName: pokemonBase[index].name, url: pokemonBase[index].url)
     }
     
     func viewDidLoad() {
@@ -57,7 +57,7 @@ extension PokemonPresenter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardPokemonCell.reuseIdentifier, for: indexPath)!
         
-        let isUnlocked = UnloakedPokemon.shared.isUnloacked(pokemonName: pokemonBase[indexPath.item].name)
+        let isUnlocked = UnloackedPokemon.shared.isUnloacked(pokemonName: pokemonBase[indexPath.item].name)
         let isFavorite = Favorites.shared.isAFavorite(name: pokemonBase[indexPath.item].name)
         
         cell.setup(with: pokemonBase[indexPath.item], isUnloacked: isUnlocked, isFavorite: isFavorite)

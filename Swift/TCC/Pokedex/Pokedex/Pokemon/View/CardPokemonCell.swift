@@ -58,7 +58,7 @@ class CardPokemonCell: UICollectionViewCell {
             cardImage.loadImageWithFilter(withIdPokemon: pokemonBase.url.lastURLParameter(), desiredColor: .black)
         }
     }
-    
+        
     func setupFavorite(isFavorite: Bool){
         if isFavorite {
             favoriteImage.image = .starFill

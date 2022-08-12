@@ -11,19 +11,24 @@ internal class BattleChoiceOpponentCoordinator {
 }
 
 extension BattleChoiceOpponentCoordinator: BattleChoiceOpponentCoordinatorProtocol {
+    func openBattle(with first: PokemonDetail, and second: PokemonDetail) {
+        let viewController = BattleCoordinator.createModule(navigationController: navigationController, firstOpponent: first, secondOpponent: second)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     
 }
 
 extension BattleChoiceOpponentCoordinator {
     
-    internal class func createModule(navigationController: UINavigationController?) -> UIViewController {
+    internal class func createModule(navigationController: UINavigationController?, pokemonDetail: PokemonDetail) -> UIViewController {
         let repository = BattleChoiceOpponentRepository()
 
         let coordinator = BattleChoiceOpponentCoordinator(navigationController: navigationController)
         
         let presenter = BattleChoiceOpponentPresenter(
             repository: repository,
-            coordinator: coordinator)
+            coordinator: coordinator, pokemonDetail: pokemonDetail)
         
         repository.output = presenter
 

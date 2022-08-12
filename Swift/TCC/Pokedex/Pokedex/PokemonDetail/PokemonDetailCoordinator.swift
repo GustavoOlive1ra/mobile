@@ -11,8 +11,9 @@ internal class PokemonDetailCoordinator {
 }
 
 extension PokemonDetailCoordinator: PokemonDetailCoordinatorProtocol {
-    func openBattleChoiceOpponent() {
-        let viewController = BattleChoiceOpponentCoordinator.createModule(navigationController: navigationController)
+    func openBattleChoiceOpponent(pokemonDetail: PokemonDetail) {
+        let viewController = BattleChoiceOpponentCoordinator.createModule(navigationController: navigationController,
+                                                                          pokemonDetail: pokemonDetail)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

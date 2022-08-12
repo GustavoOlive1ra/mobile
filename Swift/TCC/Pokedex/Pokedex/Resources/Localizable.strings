@@ -6,3 +6,6 @@
   
 */
 "unloacked.pokemon.name" = "?????";
+"battle.choice.title" = "Select Opponent";
+"battle.title.first.opponent" = "First choice:";
+"battle.choose.opponnent" = "Choose Opponent:";

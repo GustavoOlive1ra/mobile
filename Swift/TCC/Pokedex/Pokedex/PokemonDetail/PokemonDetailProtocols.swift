@@ -2,7 +2,7 @@ import Foundation
 
 // Presenter -> Coordinator
 internal protocol PokemonDetailCoordinatorProtocol {
-    func openBattleChoiceOpponent()
+    func openBattleChoiceOpponent(pokemonDetail: PokemonDetail)
 }
 
 // Presenter -> ViewController

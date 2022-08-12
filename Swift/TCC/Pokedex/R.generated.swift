@@ -485,10 +485,16 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
     struct localizable {
       /// Value: ?????
       static let unloackedPokemonName = Rswift.StringResource(key: "unloacked.pokemon.name", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Choose Opponent:
+      static let battleChooseOpponnent = Rswift.StringResource(key: "battle.choose.opponnent", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: First choice:
+      static let battleTitleFirstOpponent = Rswift.StringResource(key: "battle.title.first.opponent", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Select Opponent
+      static let battleChoiceTitle = Rswift.StringResource(key: "battle.choice.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: ?????
       static func unloackedPokemonName(preferredLanguages: [String]? = nil) -> String {
@@ -501,6 +507,45 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("unloacked.pokemon.name", bundle: bundle, comment: "")
+      }
+
+      /// Value: Choose Opponent:
+      static func battleChooseOpponnent(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("battle.choose.opponnent", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "battle.choose.opponnent"
+        }
+
+        return NSLocalizedString("battle.choose.opponnent", bundle: bundle, comment: "")
+      }
+
+      /// Value: First choice:
+      static func battleTitleFirstOpponent(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("battle.title.first.opponent", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "battle.title.first.opponent"
+        }
+
+        return NSLocalizedString("battle.title.first.opponent", bundle: bundle, comment: "")
+      }
+
+      /// Value: Select Opponent
+      static func battleChoiceTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("battle.choice.title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "battle.choice.title"
+        }
+
+        return NSLocalizedString("battle.choice.title", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

@@ -18,6 +18,11 @@
 		613829B5289B047300ACA658 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613829B4289B047300ACA658 /* Typealiases.swift */; };
 		613829B9289B07CA00ACA658 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613829B8289B07CA00ACA658 /* R.generated.swift */; };
 		613829BC289C0D5B00ACA658 /* CardPokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613829BB289C0D5B00ACA658 /* CardPokemonCell.swift */; };
+		615DE87A28A6E8FB000B60B0 /* BattleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DE87428A6E8FB000B60B0 /* BattleCoordinator.swift */; };
+		615DE87B28A6E8FB000B60B0 /* BattlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DE87528A6E8FB000B60B0 /* BattlePresenter.swift */; };
+		615DE87C28A6E8FB000B60B0 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DE87628A6E8FB000B60B0 /* BattleViewController.swift */; };
+		615DE87D28A6E8FB000B60B0 /* BattleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DE87728A6E8FB000B60B0 /* BattleProtocols.swift */; };
+		615DE87E28A6E8FB000B60B0 /* BattleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DE87828A6E8FB000B60B0 /* BattleRepository.swift */; };
 		61728660289963B900C174D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172865F289963B900C174D5 /* AppDelegate.swift */; };
 		61728662289963B900C174D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61728661289963B900C174D5 /* SceneDelegate.swift */; };
 		61728669289963BA00C174D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61728668289963BA00C174D5 /* Assets.xcassets */; };
@@ -97,6 +102,11 @@
 		613829B4289B047300ACA658 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		613829B8289B07CA00ACA658 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		613829BB289C0D5B00ACA658 /* CardPokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPokemonCell.swift; sourceTree = "<group>"; };
+		615DE87428A6E8FB000B60B0 /* BattleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleCoordinator.swift; sourceTree = "<group>"; };
+		615DE87528A6E8FB000B60B0 /* BattlePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlePresenter.swift; sourceTree = "<group>"; };
+		615DE87628A6E8FB000B60B0 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
+		615DE87728A6E8FB000B60B0 /* BattleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleProtocols.swift; sourceTree = "<group>"; };
+		615DE87828A6E8FB000B60B0 /* BattleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRepository.swift; sourceTree = "<group>"; };
 		6172865C289963B900C174D5 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6172865F289963B900C174D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61728661289963B900C174D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +237,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		615DE87328A6E8DE000B60B0 /* Battle */ = {
+			isa = PBXGroup;
+			children = (
+				615DE87428A6E8FB000B60B0 /* BattleCoordinator.swift */,
+				615DE87528A6E8FB000B60B0 /* BattlePresenter.swift */,
+				615DE87628A6E8FB000B60B0 /* BattleViewController.swift */,
+				615DE87728A6E8FB000B60B0 /* BattleProtocols.swift */,
+				615DE87828A6E8FB000B60B0 /* BattleRepository.swift */,
+			);
+			path = Battle;
+			sourceTree = "<group>";
+		};
 		61728653289963B800C174D5 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +275,7 @@
 		6172865E289963B900C174D5 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				615DE87328A6E8DE000B60B0 /* Battle */,
 				619969C428A574D600165EA2 /* BattleChoiceOpponent */,
 				613829A6289AD96400ACA658 /* Pokemon */,
 				618ABE86289D8C0400010DC7 /* PokemonDetail */,
@@ -656,6 +679,8 @@
 				618ABE85289D8A7A00010DC7 /* String.swift in Sources */,
 				613829B5289B047300ACA658 /* Typealiases.swift in Sources */,
 				613829A5289AD90000ACA658 /* HomeTabBarViewController.swift in Sources */,
+				615DE87B28A6E8FB000B60B0 /* BattlePresenter.swift in Sources */,
+				615DE87A28A6E8FB000B60B0 /* BattleCoordinator.swift in Sources */,
 				61E6038328A1586A00EC1DEF /* FlavorText.swift in Sources */,
 				618ABEA9289DB1FF00010DC7 /* PokemonType.swift in Sources */,
 				6172869E28998C8D00C174D5 /* APISupport.swift in Sources */,
@@ -663,6 +688,7 @@
 				618ABE91289D8C1E00010DC7 /* PokemonDetailRepository.swift in Sources */,
 				613829AE289AD97A00ACA658 /* PokemonPresenter.swift in Sources */,
 				613829B0289AD97A00ACA658 /* PokemonProtocols.swift in Sources */,
+				615DE87D28A6E8FB000B60B0 /* BattleProtocols.swift in Sources */,
 				61E6038728A1700700EC1DEF /* Unloacked.swift in Sources */,
 				618ABE99289DAD0700010DC7 /* PokemonDetail.swift in Sources */,
 				618ABE9B289DB12600010DC7 /* PokemonSpecies.swift in Sources */,
@@ -678,6 +704,7 @@
 				6172869528998B6300C174D5 /* PokemonBasePegeable.swift in Sources */,
 				618ABE9F289DB19500010DC7 /* Abilitiy.swift in Sources */,
 				61E6038528A16FA400EC1DEF /* UnloackedPokemon.swift in Sources */,
+				615DE87C28A6E8FB000B60B0 /* BattleViewController.swift in Sources */,
 				6172869728998BC500C174D5 /* PokemonBase.swift in Sources */,
 				619969C128A5651C00165EA2 /* Favorite.swift in Sources */,
 				619969C328A5677300165EA2 /* UIImage.swift in Sources */,
@@ -688,6 +715,7 @@
 				618ABEA3289DB1C200010DC7 /* Language.swift in Sources */,
 				613829B9289B07CA00ACA658 /* R.generated.swift in Sources */,
 				618ABE97289D902100010DC7 /* UIViewController.swift in Sources */,
+				615DE87E28A6E8FB000B60B0 /* BattleRepository.swift in Sources */,
 				613829B1289AD97A00ACA658 /* PokemonRepository.swift in Sources */,
 				619969CD28A5753400165EA2 /* BattleChoiceOpponentViewController.swift in Sources */,
 				618ABEA7289DB1E800010DC7 /* Status.swift in Sources */,

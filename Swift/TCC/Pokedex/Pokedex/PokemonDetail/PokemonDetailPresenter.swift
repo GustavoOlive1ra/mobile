@@ -21,7 +21,7 @@ internal class PokemonDetailPresenter {
 // MARK: - Presenter Protocol
 extension PokemonDetailPresenter: PokemonDetailPresenterProtocol {
     func openBattleChoice() {
-        coordinator.openBattleChoiceOpponent()
+        coordinator.openBattleChoiceOpponent(pokemonDetail: pokemonDetail!)
     }
     
     func toggleFavorite() {

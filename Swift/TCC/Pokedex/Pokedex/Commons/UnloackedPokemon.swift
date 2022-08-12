@@ -7,9 +7,9 @@
 
 import Foundation
 
-class UnloakedPokemon {
+class UnloackedPokemon {
     
-    static let shared = UnloakedPokemon()
+    static let shared = UnloackedPokemon()
     
     private let userDefaults = UserDefaults.standard
     
@@ -21,14 +21,14 @@ class UnloakedPokemon {
         fetchFromDatabase()
     }
         
-    func add(pokemonName: String) {
+    func add(pokemonName: String, url: String) {
         defer {
             updateDatabase()
         }
         if !items.contains(where: { item in
             item.name == pokemonName
         }) {
-            items.append(Unloacked(name: pokemonName))
+            items.append(Unloacked(name: pokemonName, url: url))
         }
     }
     
@@ -36,9 +36,15 @@ class UnloakedPokemon {
         items.contains { $0.name == pokemonName }
     }
     
+    func filterItems(withOut pokemonName: String) ->[Unloacked] {
+        let itemsFilter = items.filter { unloaked in
+            unloaked.name != pokemonName
+        }
+        return itemsFilter
+    }
 }
 
-private extension UnloakedPokemon {
+private extension UnloackedPokemon {
     func updateDatabase() {
         guard let jsonData =  try? JSONEncoder().encode(items) else { return }
         
