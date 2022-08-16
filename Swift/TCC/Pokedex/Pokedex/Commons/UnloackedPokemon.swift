@@ -42,6 +42,10 @@ class UnloackedPokemon {
         }
         return itemsFilter
     }
+    
+    func count() -> Int {
+        return items.count
+    }
 }
 
 private extension UnloackedPokemon {

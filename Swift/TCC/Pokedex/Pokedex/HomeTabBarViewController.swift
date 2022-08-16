@@ -25,7 +25,7 @@ class HomeTabBarViewController: UITabBarController {
         let navigation = UINavigationController()
         navigation.tabBarItem = .init(title: "Profile", image: UIImage(systemName: "person"), tag: 1)
         
-        let viewController = PokemonCoordinator.createModule(navigationController: navigation)
+        let viewController = ProfileCoordinator.createModule(navigationController: navigation)
         
         navigation.viewControllers = [viewController]
         

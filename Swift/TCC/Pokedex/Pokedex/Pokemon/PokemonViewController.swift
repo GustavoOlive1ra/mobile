@@ -47,7 +47,7 @@ internal class PokemonViewController: UIViewController, LoadingIndicatorViewType
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        tabBarController?.tabBar.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         reload()

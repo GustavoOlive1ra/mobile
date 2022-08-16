@@ -53,6 +53,10 @@ class Favorites {
         items.contains { $0.name == name }
     }
     
+    func count() -> Int {
+        return items.count
+    }
+    
 }
 
 private extension Favorites {

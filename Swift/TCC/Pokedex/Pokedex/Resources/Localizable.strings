@@ -5,10 +5,12 @@
   Created by Locação on 08/08/22.
   
 */
-"unloacked.pokemon.name" = "?????";
+"unloacked.pokemon.name" = "???";
 "battle.choice.title" = "Select Opponent";
 "battle.title.first.opponent" = "First choice:";
 "battle.choose.opponnent" = "Choose Opponent:";
 "battle.title" = "Battle";
 "battle.log.title" = "Battle log:";
 "battle.log.row" = "%s: Damage %s, %s: live %s";
+"unloacked.pokemons" = "Unloacked";
+"favorite.pokemons" = "Favorites";
