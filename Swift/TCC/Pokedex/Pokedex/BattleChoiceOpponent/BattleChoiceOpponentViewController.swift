@@ -18,30 +18,9 @@ internal class BattleChoiceOpponentViewController: UIViewController {
         return label
     }()
     
-    lazy var firstOpponentStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 3
-        stackView.backgroundColor = .white
-        stackView.alignment = .center
-        stackView.layer.cornerRadius = 8
-        stackView.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        stackView.isLayoutMarginsRelativeArrangement = true
-        return stackView
-    }()
-    
-    lazy var firstOpponentImage: UIImageView = {
-        let image = UIImageView()
-        image.snp.makeConstraints { make in
-            make.size.equalTo(90)
-        }
-        return image
-    }()
-    
-    lazy var firstOpponentName: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        return label
+    lazy var firstPokemonCard: CardPokemon = {
+        let card = CardPokemon()
+        return card
     }()
     
     lazy var titleSecondOppponentLabel: UILabel = {
@@ -105,8 +84,7 @@ extension BattleChoiceOpponentViewController: BattleChoiceOpponentViewProtocol {
     }
     
     func setupFirstOpponent(with pokemon: PokemonDetail) {
-        firstOpponentName.text = pokemon.name.uppercased()
-        firstOpponentImage.loadImage(from: pokemon.sprite.image)
+        firstPokemonCard.setup(name: pokemon.name, imageURL: pokemon.sprite.image)
     }
 
 }
@@ -123,12 +101,10 @@ extension BattleChoiceOpponentViewController {
     func buildViews() {
         view.addSubview(backgroundImage)
         view.addSubview(titleFirstOppponentLabel)
-        view.addSubview(firstOpponentStackView)
+        view.addSubview(firstPokemonCard)
         view.addSubview(titleSecondOppponentLabel)
         view.addSubview(collectionView)
         
-        firstOpponentStackView.addArrangedSubview(firstOpponentImage)
-        firstOpponentStackView.addArrangedSubview(firstOpponentName)
     }
     
     func buildConstraints() {
@@ -139,12 +115,12 @@ extension BattleChoiceOpponentViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(10)
         }
-        firstOpponentStackView.snp.makeConstraints { make in
+        firstPokemonCard.snp.makeConstraints { make in
             make.top.equalTo(titleFirstOppponentLabel.snp.bottom).offset(15)
             make.leading.equalTo(titleFirstOppponentLabel)
         }
         titleSecondOppponentLabel.snp.makeConstraints { make in
-            make.top.equalTo(firstOpponentStackView.snp.bottom).offset(15)
+            make.top.equalTo(firstPokemonCard.snp.bottom).offset(15)
             make.leading.equalTo(titleFirstOppponentLabel)
         }
         collectionView.snp.makeConstraints { make in

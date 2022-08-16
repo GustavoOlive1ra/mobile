@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 // Presenter -> Coordinator
 internal protocol BattleCoordinatorProtocol {
@@ -7,12 +8,15 @@ internal protocol BattleCoordinatorProtocol {
 
 // Presenter -> ViewController
 internal protocol BattleViewProtocol: AnyObject {
-
+    func setupFirstOpponent(pokemon: PokemonDetail)
+    func setupSecondOpponent(pokemon: PokemonDetail)
+    func reloadData()
+    func resultBattle(result: BattleStatus)
 }
 
 // ViewController -> Presenter
-internal protocol BattlePresenterProtocol {
-
+internal protocol BattlePresenterProtocol: UITableViewDelegate, UITableViewDataSource  {
+    func viewDidLoad()
 }
 
 // Presenter -> Repository
