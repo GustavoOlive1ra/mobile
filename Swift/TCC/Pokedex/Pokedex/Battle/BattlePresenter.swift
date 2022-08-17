@@ -64,9 +64,9 @@ extension BattlePresenter {
         switch self.statusBattle {
             case .inGame:
                 if round % 2 == 0 {
-                    execRound(attack: &secondOpponentStatus, defense: &firstOpponentStatus)
+                    execRound(attack: &secondOpponentStatus, defense: &firstOpponentStatus, firstOpponent: false)
                 } else {
-                    execRound(attack: &firstOpponentStatus, defense: &secondOpponentStatus)
+                    execRound(attack: &firstOpponentStatus, defense: &secondOpponentStatus, firstOpponent: true)
                 }
                 round = round + 1
             default:
@@ -74,7 +74,7 @@ extension BattlePresenter {
         }
     }
     
-    func execRound(attack: inout PokemonBattleStatus, defense: inout PokemonBattleStatus){
+    func execRound(attack: inout PokemonBattleStatus, defense: inout PokemonBattleStatus, firstOpponent: Bool){
         var damage = 0
         if (attack.attack - defense.defense) > 0 {
             damage = attack.attack - defense.defense
@@ -89,10 +89,17 @@ extension BattlePresenter {
             timer?.invalidate()
         }
         
+        attBattleLogTable(firstOpponent: firstOpponent)
+    }
+    
+    private func attBattleLogTable(firstOpponent: Bool){
         DispatchQueue.main.async {
-            self.view?.reloadData()
+            if firstOpponent {
+                self.view?.insertRowFirstOpponenet(index: self.battleLog.count-1)
+            } else {
+                self.view?.insertRowSecondOpponenet(index: self.battleLog.count-1)
+            }
         }
-        
     }
 }
 

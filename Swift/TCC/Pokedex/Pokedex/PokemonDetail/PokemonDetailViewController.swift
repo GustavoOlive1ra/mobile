@@ -144,7 +144,7 @@ extension PokemonDetailViewController: PokemonDetailViewProtocol {
     func setup(with pokemonDetail: PokemonDetail) {
         title = pokemonDetail.name.uppercased()
         nameLabel.text = pokemonDetail.name.uppercased()
-        pokemonImage.loadImage(from: pokemonDetail.sprite.image)
+        pokemonImage.loadImage(withIdPokemon: String(pokemonDetail.id))
         fillTypeStackView(with: pokemonDetail.type)
         
         sizeStatItem.setup(subititles: presenter.getSizes(with: pokemonDetail))
@@ -238,12 +238,12 @@ extension PokemonDetailViewController {
         nameLabel.snp.makeConstraints { make in
             make.bottom.equalTo(habitatImage.snp.bottom).inset(20)
             make.centerX.equalTo(habitatImage)
-            make.top.equalTo(pokemonImage.snp.bottom)
+            make.top.equalTo(pokemonImage.snp.bottom).offset(15)
         }
         
         pokemonImage.snp.makeConstraints { make in
             make.centerX.equalTo(habitatImage)
-            make.size.equalTo(140)
+            make.size.equalTo(115)
         }
         
         statsStackView.snp.makeConstraints { make in

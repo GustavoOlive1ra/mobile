@@ -84,7 +84,7 @@ extension BattleChoiceOpponentViewController: BattleChoiceOpponentViewProtocol {
     }
     
     func setupFirstOpponent(with pokemon: PokemonDetail) {
-        firstPokemonCard.setup(name: pokemon.name, imageURL: pokemon.sprite.image)
+        firstPokemonCard.setup(name: pokemon.name, id: String(pokemon.id))
     }
 
 }
@@ -93,6 +93,7 @@ extension BattleChoiceOpponentViewController {
     
     func configViews() {
         title = Strings.battleChoiceTitle()
+        removeBackButtonLabel()
         collectionView.delegate = self
         collectionView.dataSource = presenter
         collectionView.register(CardPokemonCell.self, forCellWithReuseIdentifier: CardPokemonCell.reuseIdentifier.identifier)

@@ -22,9 +22,21 @@ extension UIImageView {
             into: self
         )
     }
+    private func setupIdPokemon(id: String) -> String {
+        switch (id.count){
+        case 1:
+            return "00\(id)"
+        case 2:
+            return "0\(id)"
+        default:
+            return id
+        }
+        
+    }
     
     func loadImage(withIdPokemon idPokemon: String) {
-        let urlString: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(idPokemon).png"
+        
+        let urlString: String = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(setupIdPokemon(id: idPokemon)).png"
         guard let url = URL(string: urlString) else {
             return
         }
@@ -38,39 +50,39 @@ extension UIImageView {
     
     
     func loadImageWithFilter(withIdPokemon idPokemon: String, desiredColor: UIColor) {
-            let urlString: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(idPokemon).png"
-            guard let url = URL(string: urlString) else {
-                return
+        let urlString: String = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(setupIdPokemon(id: idPokemon)).png"
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        ImagePipeline.shared.loadImage(with: url, queue: nil, progress: nil) { result in
+            switch result {
+            case .failure:
+                self.image = ImageLoadingOptions.shared.failureImage
+                self.contentMode = .scaleAspectFit
+            case let .success(imageResponse):
+                
+                let imageSize: CGSize = imageResponse.image.size
+                let imageScale: CGFloat = imageResponse.image.scale
+                let contextBounds: CGRect = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
+                
+                UIGraphicsBeginImageContextWithOptions(imageSize, false, imageScale)
+                UIColor.black.setFill()
+                UIRectFill(contextBounds)
+                imageResponse.image.draw(at: .zero)
+                let imageOverBlack: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+                desiredColor.setFill()
+                UIRectFill(contextBounds)
+                
+                imageOverBlack!.draw(at: .zero, blendMode: .multiply, alpha: 1)
+                imageResponse.image.draw(at: .zero, blendMode: .destinationIn, alpha: 1)
+                
+                let finalImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                self.image = finalImage
+                self.contentMode = .scaleAspectFill
             }
-
-            ImagePipeline.shared.loadImage(with: url, queue: nil, progress: nil) { result in
-                switch result {
-                case .failure:
-                    self.image = ImageLoadingOptions.shared.failureImage
-                    self.contentMode = .scaleAspectFit
-                case let .success(imageResponse):
-                    
-                    let imageSize: CGSize = imageResponse.image.size
-                    let imageScale: CGFloat = imageResponse.image.scale
-                    let contextBounds: CGRect = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
-
-                    UIGraphicsBeginImageContextWithOptions(imageSize, false, imageScale)
-                        UIColor.black.setFill()
-                        UIRectFill(contextBounds)
-                        imageResponse.image.draw(at: .zero)
-                        let imageOverBlack: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-                        desiredColor.setFill()
-                        UIRectFill(contextBounds)
-
-                        imageOverBlack!.draw(at: .zero, blendMode: .multiply, alpha: 1)
-                        imageResponse.image.draw(at: .zero, blendMode: .destinationIn, alpha: 1)
-
-                        let finalImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-                    UIGraphicsEndImageContext()
-
-                    self.image = finalImage
-                    self.contentMode = .scaleAspectFill
-                }
-            }
+        }
     }
 }

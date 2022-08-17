@@ -64,7 +64,6 @@
 		618ABE9F289DB19500010DC7 /* Abilitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618ABE9E289DB19500010DC7 /* Abilitiy.swift */; };
 		618ABEA1289DB1B300010DC7 /* Habitat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618ABEA0289DB1B300010DC7 /* Habitat.swift */; };
 		618ABEA3289DB1C200010DC7 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618ABEA2289DB1C200010DC7 /* Language.swift */; };
-		618ABEA5289DB1D300010DC7 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618ABEA4289DB1D300010DC7 /* Sprite.swift */; };
 		618ABEA7289DB1E800010DC7 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618ABEA6289DB1E800010DC7 /* Status.swift */; };
 		618ABEA9289DB1FF00010DC7 /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618ABEA8289DB1FF00010DC7 /* PokemonType.swift */; };
 		619969BF28A5646F00165EA2 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619969BE28A5646F00165EA2 /* Favorites.swift */; };
@@ -166,7 +165,6 @@
 		618ABE9E289DB19500010DC7 /* Abilitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abilitiy.swift; sourceTree = "<group>"; };
 		618ABEA0289DB1B300010DC7 /* Habitat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habitat.swift; sourceTree = "<group>"; };
 		618ABEA2289DB1C200010DC7 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		618ABEA4289DB1D300010DC7 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		618ABEA6289DB1E800010DC7 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		618ABEA8289DB1FF00010DC7 /* PokemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
 		619969BE28A5646F00165EA2 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
@@ -388,7 +386,6 @@
 				618ABE9E289DB19500010DC7 /* Abilitiy.swift */,
 				618ABEA0289DB1B300010DC7 /* Habitat.swift */,
 				618ABEA2289DB1C200010DC7 /* Language.swift */,
-				618ABEA4289DB1D300010DC7 /* Sprite.swift */,
 				618ABEA6289DB1E800010DC7 /* Status.swift */,
 				618ABEA8289DB1FF00010DC7 /* PokemonType.swift */,
 				61E6038228A1586A00EC1DEF /* FlavorText.swift */,
@@ -804,7 +801,6 @@
 				6172869A28998C7500C174D5 /* API.swift in Sources */,
 				618ABE90289D8C1E00010DC7 /* PokemonDetailProtocols.swift in Sources */,
 				613829AD289AD97A00ACA658 /* PokemonCoordinator.swift in Sources */,
-				618ABEA5289DB1D300010DC7 /* Sprite.swift in Sources */,
 				618ABEA1289DB1B300010DC7 /* Habitat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

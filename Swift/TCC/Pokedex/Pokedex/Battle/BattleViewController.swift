@@ -102,22 +102,29 @@ internal class BattleViewController: UIViewController {
 
 // MARK: - BattleViewControllerProtocol
 extension BattleViewController: BattleViewProtocol {
+    
+    func insertRowFirstOpponenet(index: Int) {
+        let indexPaths = [IndexPath(row: index, section: 0)]
+        battleLogTabel.insertRows(at: indexPaths, with: .left)
+    }
+    
+    func insertRowSecondOpponenet(index: Int) {
+        let indexPaths = [IndexPath(row: index, section: 0)]
+        battleLogTabel.insertRows(at: indexPaths, with: .right)
+    }
+    
     func resultBattle(result: BattleStatus) {
         resultLabel.text = result.toText.uppercased()
         resultLabel.isHidden = false
         resultLabel.backgroundColor = result.color
     }
     
-    func reloadData() {
-        battleLogTabel.reloadData()
-    }
-    
     func setupFirstOpponent(pokemon: PokemonDetail) {
-        firstPokemonCard.setup(name: pokemon.name, imageURL: pokemon.sprite.image)
+        firstPokemonCard.setup(name: pokemon.name, id: String(pokemon.id))
     }
     
     func setupSecondOpponent(pokemon: PokemonDetail) {
-        secondPokemonCard.setup(name: pokemon.name, imageURL: pokemon.sprite.image)
+        secondPokemonCard.setup(name: pokemon.name, id: String(pokemon.id))
     }
 }
 

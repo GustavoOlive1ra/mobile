@@ -86,7 +86,7 @@ extension CardPokemonCell {
         cardImage.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(10)
-            make.size.equalTo(90)
+            make.size.equalTo(75)
         }
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

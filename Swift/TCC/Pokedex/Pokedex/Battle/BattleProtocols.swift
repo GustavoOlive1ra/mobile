@@ -10,8 +10,9 @@ internal protocol BattleCoordinatorProtocol {
 internal protocol BattleViewProtocol: AnyObject {
     func setupFirstOpponent(pokemon: PokemonDetail)
     func setupSecondOpponent(pokemon: PokemonDetail)
-    func reloadData()
     func resultBattle(result: BattleStatus)
+    func insertRowFirstOpponenet(index: Int)
+    func insertRowSecondOpponenet(index: Int)
 }
 
 // ViewController -> Presenter

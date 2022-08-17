@@ -14,7 +14,6 @@ struct PokemonDetail: Codable {
     let name: String
     let weight: Int
     let abilities: [Ability]
-    let sprite: Sprite
     let status: [Status]
     let type: [PokemonType]
     
@@ -24,7 +23,6 @@ struct PokemonDetail: Codable {
         case weight
         case name
         case abilities
-        case sprite = "sprites"
         case status = "stats"
         case type = "types"
     }

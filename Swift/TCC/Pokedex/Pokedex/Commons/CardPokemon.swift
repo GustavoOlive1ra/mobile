@@ -48,9 +48,9 @@ class CardPokemon: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(name: String, imageURL: String){
+    func setup(name: String, id: String){
         firstOpponentName.text = name.uppercased()
-        firstOpponentImage.loadImage(from: imageURL)
+        firstOpponentImage.loadImage(withIdPokemon: id)
     }
 }
 
