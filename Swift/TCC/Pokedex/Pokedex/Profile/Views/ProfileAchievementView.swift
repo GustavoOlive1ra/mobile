@@ -22,13 +22,14 @@ class ProfileAchievementView: UIView {
 
     lazy var qtdLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
         return label
     }()
     
     lazy var iconLabel: UIImageView = {
         let image = UIImageView()
         image.snp.makeConstraints { make in
-            make.size.equalTo(30)
+            make.size.equalTo(25)
         }
         return image
     }()

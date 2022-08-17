@@ -14,7 +14,7 @@ class StatsItemView: UIView {
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 4
         return stackView
     }()
     

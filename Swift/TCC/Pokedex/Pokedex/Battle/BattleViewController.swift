@@ -89,7 +89,6 @@ internal class BattleViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.tintColor = .label
-        removeBackButtonLabel()
         
         let barAppearance = UIBarAppearance()
         barAppearance.backgroundColor = .red
@@ -125,6 +124,7 @@ extension BattleViewController: BattleViewProtocol {
 extension BattleViewController {
     
     func configViews() {
+        removeBackButtonLabel()
         title = Strings.battleTitle()
         
         battleLogTabel.delegate = presenter

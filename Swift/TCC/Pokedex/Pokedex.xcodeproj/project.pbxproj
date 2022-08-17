@@ -30,6 +30,8 @@
 		6145C95528AC0A7100DECC03 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145C95428AC0A7100DECC03 /* Profile.swift */; };
 		6145C95728AC0FCA00DECC03 /* UIImage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145C95628AC0FCA00DECC03 /* UIImage+Data.swift */; };
 		6145C95A28AC273000DECC03 /* ProfileAchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145C95928AC273000DECC03 /* ProfileAchievementView.swift */; };
+		6145C95C28AC3E7200DECC03 /* HorizontalSeparetor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145C95B28AC3E7200DECC03 /* HorizontalSeparetor.swift */; };
+		6145C95E28AC3E7F00DECC03 /* VerticalSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145C95D28AC3E7F00DECC03 /* VerticalSeparator.swift */; };
 		615DE87A28A6E8FB000B60B0 /* BattleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DE87428A6E8FB000B60B0 /* BattleCoordinator.swift */; };
 		615DE87B28A6E8FB000B60B0 /* BattlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DE87528A6E8FB000B60B0 /* BattlePresenter.swift */; };
 		615DE87C28A6E8FB000B60B0 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DE87628A6E8FB000B60B0 /* BattleViewController.swift */; };
@@ -126,6 +128,8 @@
 		6145C95428AC0A7100DECC03 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		6145C95628AC0FCA00DECC03 /* UIImage+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Data.swift"; sourceTree = "<group>"; };
 		6145C95928AC273000DECC03 /* ProfileAchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAchievementView.swift; sourceTree = "<group>"; };
+		6145C95B28AC3E7200DECC03 /* HorizontalSeparetor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeparetor.swift; sourceTree = "<group>"; };
+		6145C95D28AC3E7F00DECC03 /* VerticalSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSeparator.swift; sourceTree = "<group>"; };
 		615DE87428A6E8FB000B60B0 /* BattleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleCoordinator.swift; sourceTree = "<group>"; };
 		615DE87528A6E8FB000B60B0 /* BattlePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlePresenter.swift; sourceTree = "<group>"; };
 		615DE87628A6E8FB000B60B0 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 				619969BE28A5646F00165EA2 /* Favorites.swift */,
 				6145C93E28AAAB2300DECC03 /* CardPokemon.swift */,
 				6145C95228AC098A00DECC03 /* Profiles.swift */,
+				6145C95B28AC3E7200DECC03 /* HorizontalSeparetor.swift */,
+				6145C95D28AC3E7F00DECC03 /* VerticalSeparator.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -754,6 +760,7 @@
 				613829B0289AD97A00ACA658 /* PokemonProtocols.swift in Sources */,
 				6145C95528AC0A7100DECC03 /* Profile.swift in Sources */,
 				615DE87D28A6E8FB000B60B0 /* BattleProtocols.swift in Sources */,
+				6145C95C28AC3E7200DECC03 /* HorizontalSeparetor.swift in Sources */,
 				61E6038728A1700700EC1DEF /* Unloacked.swift in Sources */,
 				618ABE99289DAD0700010DC7 /* PokemonDetail.swift in Sources */,
 				618ABE9B289DB12600010DC7 /* PokemonSpecies.swift in Sources */,
@@ -765,6 +772,7 @@
 				6172869C28998C8000C174D5 /* Endpoint.swift in Sources */,
 				6145C94128AACE2700DECC03 /* BattleLogCell.swift in Sources */,
 				618ABE95289D8F5000010DC7 /* LoadIndicatorViewController.swift in Sources */,
+				6145C95E28AC3E7F00DECC03 /* VerticalSeparator.swift in Sources */,
 				618ABE8D289D8C1E00010DC7 /* PokemonDetailCoordinator.swift in Sources */,
 				61728662289963B900C174D5 /* SceneDelegate.swift in Sources */,
 				6172869528998B6300C174D5 /* PokemonBasePegeable.swift in Sources */,

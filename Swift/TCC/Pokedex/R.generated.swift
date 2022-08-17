@@ -105,12 +105,14 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 3 colors.
+  /// This `R.color` struct is generated, and contains static references to 4 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
     /// Color `Card-blue`.
     static let cardBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "Card-blue")
+    /// Color `Separator`.
+    static let separator = Rswift.ColorResource(bundle: R.hostingBundle, name: "Separator")
     /// Color `Star`.
     static let star = Rswift.ColorResource(bundle: R.hostingBundle, name: "Star")
 
@@ -129,6 +131,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func cardBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.cardBlue, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Separator", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func separator(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.separator, compatibleWith: traitCollection)
     }
     #endif
 
@@ -154,6 +165,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func cardBlue(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.cardBlue.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Separator", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func separator(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.separator.name)
     }
     #endif
 

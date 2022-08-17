@@ -16,6 +16,7 @@ internal protocol ProfileViewProtocol: AnyObject {
 internal protocol ProfilePresenterProtocol {
     func viewDidLoad()
     func setGaleryImage(image: UIImage?)
+    func setName(name: String?) -> String?
 }
 
 // Presenter -> Repository

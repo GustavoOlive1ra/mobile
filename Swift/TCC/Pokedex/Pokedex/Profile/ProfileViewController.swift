@@ -11,9 +11,9 @@ internal class ProfileViewController: UIViewController, UIImagePickerControllerD
         button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(chooseImage)))
         button.tintColor = .black
         button.snp.makeConstraints { make in
-            make.size.equalTo(26)
+            make.height.equalTo(20)
         }
-        button.contentMode = .scaleToFill
+        button.contentMode = .scaleAspectFit
         return button
     }()
     
@@ -27,19 +27,13 @@ internal class ProfileViewController: UIViewController, UIImagePickerControllerD
         return image
     }()
     
-    lazy var nameStack: UIStackView = {
-        let stack = UIStackView()
-        stack.distribution = .equalSpacing
-        stack.spacing = 8
-        return stack
-    }()
-    
     lazy var editNameButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "pencil"), for: .normal)
         button.snp.makeConstraints { make in
             make.size.equalTo(25)
         }
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleEditName)))
         button.tintColor = .black
         return button
     }()
@@ -47,16 +41,45 @@ internal class ProfileViewController: UIViewController, UIImagePickerControllerD
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 25)
+        label.numberOfLines = 0
         return label
+    }()
+    
+    lazy var nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.font = .italicSystemFont(ofSize: 25)
+        textField.backgroundColor = .white
+        textField.textAlignment = .left
+        textField.keyboardType = .alphabet
+        textField.isHidden = true
+        textField.delegate = self
+        return textField
+    }()
+    
+    lazy var finishEditButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        button.snp.makeConstraints { make in
+            make.size.equalTo(25)
+        }
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleEditName)))
+        button.tintColor = .green
+        button.isHidden = true
+        return button
     }()
     
     lazy var achievementStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.spacing = 14
+        stack.spacing = 20
         stack.layoutMargins = UIEdgeInsets(top: 5, left: 2, bottom: 5, right: 2)
         stack.isLayoutMarginsRelativeArrangement = true
         return stack
+    }()
+    
+    lazy var separator: VerticalSeparator = {
+        let separator = VerticalSeparator()
+        return separator
     }()
     
     lazy var unloackedPokemons: ProfileAchievementView = {
@@ -88,6 +111,21 @@ internal class ProfileViewController: UIViewController, UIImagePickerControllerD
         presenter.setGaleryImage(image: image)
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @objc func toggleEditName(){
+        if nameLabel.isHidden {
+            nameLabel.text = presenter.setName(name: nameTextField.text)
+        } else {
+            nameTextField.text = nameLabel.text
+            nameTextField.becomeFirstResponder()
+        }
+        
+        nameLabel.isHidden = !nameLabel.isHidden
+        editNameButton.isHidden = !editNameButton.isHidden
+        
+        nameTextField.isHidden = !nameTextField.isHidden
+        finishEditButton.isHidden = !finishEditButton.isHidden
+    }
 
     @available(*, unavailable)
     internal required init?(coder: NSCoder) {
@@ -100,10 +138,12 @@ internal class ProfileViewController: UIViewController, UIImagePickerControllerD
         configViews()
         buildViews()
         buildConstraints()
-        
-        presenter.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewDidLoad()
+    }
 }
 
 // MARK: - ProfileViewControllerProtocol
@@ -117,8 +157,6 @@ extension ProfileViewController: ProfileViewProtocol {
         profileImage.image = profile.image?.toUIImage()
         nameLabel.text = profile.name
     }
-    
-
 }
 
 extension ProfileViewController {
@@ -130,13 +168,14 @@ extension ProfileViewController {
     func buildViews() {
         view.addSubview(profileImage)
         view.addSubview(chooseImageButton)
-        view.addSubview(nameStack)
+        view.addSubview(nameLabel)
+        view.addSubview(editNameButton)
+        view.addSubview(nameTextField)
+        view.addSubview(finishEditButton)
         view.addSubview(achievementStack)
         
-        nameStack.addArrangedSubview(nameLabel)
-        nameStack.addArrangedSubview(editNameButton)
-        
         achievementStack.addArrangedSubview(unloackedPokemons)
+        achievementStack.addArrangedSubview(separator)
         achievementStack.addArrangedSubview(favoritePokemons)
     }
     
@@ -148,14 +187,39 @@ extension ProfileViewController {
         chooseImageButton.snp.makeConstraints { make in
             make.bottom.trailing.equalTo(profileImage).inset(2)
         }
-        nameStack.snp.makeConstraints { make in
+        nameLabel.snp.makeConstraints { make in
             make.top.equalTo(profileImage.snp.bottom).offset(15)
-            make.centerX.equalTo(profileImage).offset(10)
+            make.centerX.equalTo(profileImage)
+            make.width.lessThanOrEqualTo(300)
+        }
+        
+        editNameButton.snp.makeConstraints { make in
+            make.centerY.equalTo(nameLabel).offset(2)
+            make.leading.equalTo(nameLabel.snp.trailing).offset(5)
+        }
+
+        nameTextField.snp.makeConstraints { make in
+            make.top.equalTo(profileImage.snp.bottom).offset(15)
+            make.centerX.equalTo(profileImage)
+            make.width.lessThanOrEqualTo(300)
+        }
+        
+        finishEditButton.snp.makeConstraints { make in
+            make.centerY.equalTo(nameTextField)
+            make.leading.equalTo(nameTextField.snp.trailing).offset(5)
         }
         
         achievementStack.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(10)
             make.centerX.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+}
+
+extension ProfileViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        toggleEditName()
+        return true
     }
 }

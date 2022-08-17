@@ -16,6 +16,12 @@ internal class ProfilePresenter {
 
 // MARK: - Presenter Protoco∫l
 extension ProfilePresenter: ProfilePresenterProtocol {
+    func setName(name: String?) -> String? {
+        let newName = name ?? " "
+        Profiles.shared.update(name: newName)
+        return Profiles.shared.getProfile().name
+    }
+    
     func viewDidLoad() {
         let profile = Profiles.shared.getProfile()
         let qtdUnlocked = UnloackedPokemon.shared.count()

@@ -69,6 +69,7 @@ internal class PokemonDetailViewController: UIViewController {
     lazy var statsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 4
         return stackView
     }()
     
@@ -86,6 +87,7 @@ internal class PokemonDetailViewController: UIViewController {
         let statsItem = StatsItemView(title: "Status")
         return statsItem
     }()
+    
     
     lazy var textEntryLabel: UILabel = {
         let label = UILabel()
