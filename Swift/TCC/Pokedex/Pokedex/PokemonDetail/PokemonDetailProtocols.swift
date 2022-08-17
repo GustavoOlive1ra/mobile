@@ -10,6 +10,8 @@ internal protocol PokemonDetailViewProtocol: AnyObject {
     func setup(with: PokemonDetail)
     func setup(with: PokemonSpecies)
     func showAlert(title: String, message: String)
+    func showLoadingIndicator()
+    func hideLoadingIndicator()
 }
 
 // ViewController -> Presenter

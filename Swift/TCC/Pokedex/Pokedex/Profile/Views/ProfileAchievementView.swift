@@ -13,7 +13,7 @@ class ProfileAchievementView: UIView {
     lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .center
-        stack.axis = .vertical
+        stack.axis = .horizontal
         stack.spacing = 5
         stack.layoutMargins = UIEdgeInsets(top: 5, left: 2, bottom: 5, right: 2)
         stack.isLayoutMarginsRelativeArrangement = true
@@ -29,7 +29,7 @@ class ProfileAchievementView: UIView {
     lazy var iconLabel: UIImageView = {
         let image = UIImageView()
         image.snp.makeConstraints { make in
-            make.size.equalTo(25)
+            make.size.equalTo(18)
         }
         return image
     }()
@@ -61,8 +61,8 @@ extension ProfileAchievementView {
     func buildViews() {
         addSubview(stackView)
         
-        stackView.addArrangedSubview(iconLabel)
         stackView.addArrangedSubview(qtdLabel)
+        stackView.addArrangedSubview(iconLabel)
     }
     
     func buildConstraints() {

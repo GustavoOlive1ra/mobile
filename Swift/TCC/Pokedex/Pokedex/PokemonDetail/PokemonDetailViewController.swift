@@ -1,6 +1,7 @@
 import UIKit
 
-internal class PokemonDetailViewController: UIViewController {
+internal class PokemonDetailViewController: UIViewController, LoadingIndicatorViewType {
+    var loadingIndicatorViewController: UIViewController?
     
     private let presenter: PokemonDetailPresenterProtocol
     

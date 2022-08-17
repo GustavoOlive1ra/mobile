@@ -7,8 +7,20 @@ internal class PokemonDetailPresenter {
     internal var coordinator: PokemonDetailCoordinatorProtocol
     
     private let pokemonName: String
-    private var pokemonDetail: PokemonDetail?
-    private var pokemonSpecies: PokemonSpecies?
+    private var pokemonDetail: PokemonDetail?  {
+        didSet{
+            if pokemonSpecies != nil {
+                view?.hideLoadingIndicator()
+            }
+        }
+    }
+    private var pokemonSpecies: PokemonSpecies?  {
+        didSet{
+            if pokemonDetail != nil {
+                view?.hideLoadingIndicator()
+            }
+        }
+    }
     
     internal init(repository: PokemonDetailRepositoryInputProtocol,
                   coordinator: PokemonDetailCoordinatorProtocol, pokemonName: String) {
@@ -42,6 +54,7 @@ extension PokemonDetailPresenter: PokemonDetailPresenterProtocol {
     }
     
     func viewDidLoad() {
+        view?.showLoadingIndicator()
         repository.getPokemonsDetail(pokemonName: pokemonName)
         repository.getPokemonsSpecies(pokemonName: pokemonName)
     }

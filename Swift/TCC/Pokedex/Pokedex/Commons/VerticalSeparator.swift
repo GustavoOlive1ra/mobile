@@ -40,8 +40,8 @@ extension VerticalSeparator {
     func buildConstraints() {
         rectangle.snp.makeConstraints { make in
             make.width.equalTo(2)
-            make.top.equalToSuperview().offset(8)
-            make.bottom.equalToSuperview().inset(8)
+            make.top.equalToSuperview().offset(6)
+            make.bottom.equalToSuperview().inset(6)
         }
     }
 }
